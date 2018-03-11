@@ -1,0 +1,1 @@
+﻿public enum EnBotInputSource { None, BasicPursuer }
