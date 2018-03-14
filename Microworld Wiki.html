@@ -140,6 +140,8 @@ Error message and password prompt
 
 <li>$:/SiteTitle</li>
 
+<li>$:/state/image-picker/system--1365487189</li>
+
 <li>$:/state/showeditpreview</li>
 
 <li>$:/state/tab/sidebar--1835078512</li>
@@ -177,6 +179,8 @@ Error message and password prompt
 <li>Character</li>
 
 <li>CharacterManager</li>
+
+<li>Clone repository</li>
 
 <li>Concept Arts</li>
 
@@ -217,6 +221,8 @@ Error message and password prompt
 <li>Software Pattern Elements</li>
 
 <li>TableOfContents</li>
+
+<li>Using TortoiseGit</li>
 
 </ul>
 </p>
@@ -8520,6 +8526,9 @@ TableOfContents</pre>
 <div created="20180305235410937" modified="20180305235424157" title="$:/SiteTitle">
 <pre>Microworld Wiki</pre>
 </div>
+<div created="20180314220504275" modified="20180314220505407" title="$:/state/image-picker/system--1365487189">
+<pre>hide</pre>
+</div>
 <div created="20180306000413401" modified="20180306002313343" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
@@ -8538,8 +8547,8 @@ TableOfContents</pre>
 <div created="20180306000744313" modified="20180306000744313" title="$:/state/toc/TableOfContents-Software Usage--81657105">
 <pre>open</pre>
 </div>
-<div created="20180306003126109" modified="20180306004336561" title="$:/state/toc/TableOfContents/Software Development-Software Pattern Elements--81657105">
-<pre>open</pre>
+<div created="20180306003126109" modified="20180314213550089" title="$:/state/toc/TableOfContents/Software Development-Software Pattern Elements--81657105">
+<pre>close</pre>
 </div>
 <div created="20180306005604499" modified="20180311015513619" title="$:/state/toc/TableOfContents/Software Development/Software Pattern Elements-Manager--81657105">
 <pre>open</pre>
@@ -8553,7 +8562,7 @@ TableOfContents</pre>
 <div created="20180306005209933" modified="20180306005209933" title="$:/state/toc/TableOfContents/Software Development/Software Pattern Elements/Model-Control--81657105">
 <pre>open</pre>
 </div>
-<div list="[[External Links]] [[Game Information]] [[Software Pattern Elements]] [[Software Development]]" title="$:/StoryList">
+<div list="[[Clone repository]] [[Using TortoiseGit]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -8569,7 +8578,7 @@ TableOfContents</pre>
         },
         &quot;$:/info/url/full&quot;: {
             &quot;title&quot;: &quot;$:/info/url/full&quot;,
-            &quot;text&quot;: &quot;file:///C:/Users/Sergi/Desktop/Microworld%20Wiki.html&quot;
+            &quot;text&quot;: &quot;file:///C:/skucherenko/repos/Microworld/Microworld%20Wiki.html&quot;
         },
         &quot;$:/info/url/host&quot;: {
             &quot;title&quot;: &quot;$:/info/url/host&quot;,
@@ -8589,7 +8598,7 @@ TableOfContents</pre>
         },
         &quot;$:/info/url/pathname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/pathname&quot;,
-            &quot;text&quot;: &quot;/C:/Users/Sergi/Desktop/Microworld%20Wiki.html&quot;
+            &quot;text&quot;: &quot;/C:/skucherenko/repos/Microworld/Microworld%20Wiki.html&quot;
         },
         &quot;$:/info/url/search&quot;: {
             &quot;title&quot;: &quot;$:/info/url/search&quot;,
@@ -8724,6 +8733,18 @@ TableOfContents</pre>
 </div>
 <div created="20180306005525978" modified="20180306005546222" tags="Manager" title="CharacterManager">
 <pre>Description...</pre>
+</div>
+<div created="20180314215647409" modified="20180314221235971" tags="[[Using TortoiseGit]]" title="Clone repository">
+<pre>These are the steps
+
+# Go to C:\''//~YourNickName//''\repos.
+# Open explorer context menu (right click) and select //''Git Clone...''//
+# Set: 
+#* URL: https://github.com/KucherenkoSerhiy/Microworld
+#* Directory: C:\''//~YourNickName//''\repos\Microworld
+# Click Ok and watch as it clones your repo. Finally, click Close.
+
+That's all!</pre>
 </div>
 <div created="20180305235542138" modified="20180305235633966" tags="TableOfContents" title="Concept Arts">
 <pre></pre>
@@ -8899,6 +8920,25 @@ Arguments</pre>
 &lt;&lt;toc-selective-expandable 'TableOfContents'&gt;&gt;
 
 &lt;/div&gt;</pre>
+</div>
+<div created="20180314215229296" modified="20180314225822196" tags="[[Software Development]]" title="Using TortoiseGit">
+<pre>! Workflow
+This chapter describes the usual flow of git usage for keeping consistency of changes. Click [[here|https://tortoisegit.org/docs/tortoisegit/tgit-dug.html]] to see what else you can do with ~TortoiseGit.
+
+!! [[View Tree|https://tortoisegit.org/docs/tortoisegit/tgit-dug-revgraph.html]]
+* [[View differences|https://tortoisegit.org/docs/tortoisegit/tgit-dug-diff.html#tgit-dug-diff-tools]]
+
+!! Local
+# [[Branch|https://tortoisegit.org/docs/tortoisegit/tgit-dug-branchtag.html#tgit-dug-branch-1]]
+# [[Checkout to another Branch|https://tortoisegit.org/docs/tortoisegit/tgit-dug-checkout.html]]
+# [[Commit, Commit...|https://tortoisegit.org/docs/tortoisegit/tgit-dug-merge.html]]
+# [[Merge|https://tortoisegit.org/docs/tortoisegit/tgit-dug-merge.html]]
+
+# [[Oops, a conflict!|https://tortoisegit.org/docs/tortoisegit/tgit-dug-conflicts.html]]
+
+!! Remote
+* [[Push|https://tortoisegit.org/docs/tortoisegit/tgit-dug-push.html]] changes to remote
+* [[Pull/Fetch|https://tortoisegit.org/docs/tortoisegit/tgit-dug-pull.html]] changes</pre>
 </div>
 
 </div>
