@@ -36,6 +36,11 @@ namespace Assets.Backend.GameCore.BusinessLogic.Factory
             return new JumpAbility(character, abilityArgs);
         }
 
+        internal Ability CreateShootAbility(Character character, ShootAbilityArgs abilityArgs)
+        {
+            return new ShootAbility(character, abilityArgs);
+        }
+
         public Ability CreateGatherAbility(Character character, GatherAbilityArgs gatherAbilityArgs)
         {
             return new GatherAbility(character, gatherAbilityArgs);

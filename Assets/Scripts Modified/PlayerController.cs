@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     public MoveAbilityArgs MoveAbilityArgs;
     public JumpAbilityArgs JumpAbilityArgs;
     public GatherAbilityArgs GatherAbilityArgs;
+    public ShootAbilityArgs ShootAbilityArgs;
 
     #region Shoud be removed
 
@@ -47,12 +48,14 @@ public class PlayerController : MonoBehaviour {
         var moveAbility = AbilityFactory.Instance.CreateMoveAbility(_character, MoveAbilityArgs);
         var jumpAbility = AbilityFactory.Instance.CreateJumpAbility(_character, JumpAbilityArgs);
         var gatherAbility = AbilityFactory.Instance.CreateGatherAbility(_character, GatherAbilityArgs);
+        var shootAbility = AbilityFactory.Instance.CreateShootAbility(_character, ShootAbilityArgs);
         var possessAbility = AbilityFactory.Instance.CreatePossessAbility(_character);
 
         _character.Abilities.Add(moveAbility);
         _character.Abilities.Add(jumpAbility);
         _character.Abilities.Add(gatherAbility);
         _character.Abilities.Add(possessAbility);
+        _character.Abilities.Add(shootAbility);
     }
 
     void Update () {
