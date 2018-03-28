@@ -55,6 +55,7 @@
     <Compile Include="Assets\Backend\GameCore\A.I\BasicPursuer.cs" />
     <Compile Include="Assets\Backend\GameCore\BusinessLogic\Factory\AbilityFactory.cs" />
     <Compile Include="Assets\Backend\GameCore\BusinessLogic\Factory\CharacterFactory.cs" />
+    <Compile Include="Assets\Backend\GameCore\BusinessLogic\Factory\ProjectileFactory.cs" />
     <Compile Include="Assets\Backend\GameCore\Manager\CharacterManager.cs" />
     <Compile Include="Assets\Backend\GameCore\Manager\ControlManager.cs" />
     <Compile Include="Assets\Backend\Model\Ability\Ability.cs" />
@@ -63,11 +64,13 @@
     <Compile Include="Assets\Backend\Model\Ability\AbilityArgs\JumpAbilityArgs.cs" />
     <Compile Include="Assets\Backend\Model\Ability\AbilityArgs\MoveAbilityArgs.cs" />
     <Compile Include="Assets\Backend\Model\Ability\AbilityArgs\PossessionAbilityArgs.cs" />
+    <Compile Include="Assets\Backend\Model\Ability\AbilityArgs\ShootAbilityArgs.cs" />
     <Compile Include="Assets\Backend\Model\Ability\AbilityTypes\GatherAbility.cs" />
     <Compile Include="Assets\Backend\Model\Ability\AbilityTypes\InvincibleAbility.cs" />
     <Compile Include="Assets\Backend\Model\Ability\AbilityTypes\JumpAbility.cs" />
     <Compile Include="Assets\Backend\Model\Ability\AbilityTypes\MoveAbility.cs" />
     <Compile Include="Assets\Backend\Model\Ability\AbilityTypes\PossessionAbility.cs" />
+    <Compile Include="Assets\Backend\Model\Ability\AbilityTypes\ShootAbility.cs" />
     <Compile Include="Assets\Backend\Model\Character\Character.cs" />
     <Compile Include="Assets\Backend\Model\Character\CharacterList.cs" />
     <Compile Include="Assets\Backend\Model\Control\BotPlayerControl.cs" />
@@ -81,16 +84,6 @@
     <Compile Include="Assets\Globals\Constants.cs" />
     <Compile Include="Assets\Scripts Modified\EnemyController.cs" />
     <Compile Include="Assets\Scripts Modified\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\BaseEnemy.cs" />
-    <Compile Include="Assets\Scripts\EnemyGenerator.cs" />
-    <Compile Include="Assets\Scripts\EnemySticker.cs" />
-    <Compile Include="Assets\Scripts\HostAttributes.cs" />
-    <Compile Include="Assets\Scripts\HostController.cs" />
-    <Compile Include="Assets\Scripts\MultipleTargetCamera.cs" />
-    <Compile Include="Assets\Scripts\Possession.cs" />
-    <Compile Include="Assets\Scripts\PursuerEnemy.cs" />
-    <Compile Include="Assets\Scripts\StickerAttributes.cs" />
-    <Compile Include="Assets\Scripts\StickerEnemy.cs" />
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>

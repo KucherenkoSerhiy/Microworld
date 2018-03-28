@@ -13,22 +13,6 @@ public class PlayerController : MonoBehaviour {
     public JumpAbilityArgs JumpAbilityArgs;
     public GatherAbilityArgs GatherAbilityArgs;
     public ShootAbilityArgs ShootAbilityArgs;
-
-    #region Shoud be removed
-
-    public float moveSpeed;
-    public float jumpForce;
-    public float roundCheckRadius;
-    public bool isGrounded;
-    public int jumpsMax;
-    public int currGems = 0;
-    public int health = 3;
-    public KeyCode shoot;
-    public Transform groundCheckPoint;
-    public LayerMask whatIsGround;
-    Animator anim;
-
-    #endregion
     
 	void Start ()
     {
