@@ -19,7 +19,7 @@ namespace Assets.Backend.Model
         /// <summary>
         ///  Called from Collide() method in Unity script
         /// </summary>
-        /// <param name="other"></param>
+        /// <param name="other">With whom this object has collided</param>
         public abstract void Collide(Collision2D other);
     }
 }

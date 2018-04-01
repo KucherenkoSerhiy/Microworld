@@ -9,7 +9,7 @@ namespace Assets.Backend.Model
 {
     public class JumpAbility : Ability
     {
-        public JumpAbilityArgs AbilityArgs { get; set; }
+        private JumpAbilityArgs AbilityArgs { get; set; }
 
         private readonly Rigidbody2D _rigidBody;
         private readonly BoxCollider2D _boxCollider2D;
@@ -28,17 +28,39 @@ namespace Assets.Backend.Model
 
         public override void Activate()
         {
-            if (!Input.IsIntentingToJump || CanNotJump()) return;
+            if (!Input.IsIntentingToJump) return;
 
+            if (CanPerformWallJump())
+                PerformWallJump();
+                
+            else if (CanJump())
+                PerformJump();
+        }
+
+        private bool CanPerformWallJump()
+        {
+            return AbilityArgs.CanWallJump && !IsGrounded();
+        }
+
+        private void PerformWallJump()
+        {
+            _rigidBody.velocity = new Vector2(
+                IsTouchingWallLeft()? AbilityArgs.JumpForce : -AbilityArgs.JumpForce, 
+                AbilityArgs.JumpForce
+            );
+        }
+
+        private bool CanJump()
+        {
+            return AbilityArgs.IsGrounded || AbilityArgs.JumpsDone < AbilityArgs.JumpsMax;
+        }
+
+        private void PerformJump()
+        {
             _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, AbilityArgs.JumpForce);
 
             AbilityArgs.IsGrounded = false;
             AbilityArgs.JumpsDone++;
-        }
-
-        private bool CanNotJump()
-        {
-            return !AbilityArgs.IsGrounded && (AbilityArgs.JumpsDone >= AbilityArgs.JumpsMax);
         }
 
         public override void Collide(Collision2D other)
@@ -54,6 +76,20 @@ namespace Assets.Backend.Model
             // took from here: https://answers.unity.com/questions/196381/how-do-i-check-if-my-rigidbody-player-is-grounded.html
             var distToGround = _boxCollider2D.bounds.extents.y;
             return Physics2D.Raycast(_transform.position, Vector3.down, distToGround + 0.1f);
+        }
+
+        private bool IsTouchingWallLeft()
+        {
+            bool collidesLeft = Physics2D.Raycast(_transform.position, Vector2.left, _boxCollider2D.bounds.extents.x + 0.1f);
+
+            return collidesLeft;
+        }
+        
+        private bool IsTouchingWallRight()
+        {
+            bool collidesRight = Physics2D.Raycast(_transform.position, Vector2.right, _boxCollider2D.bounds.extents.x + 0.1f);
+
+            return collidesRight;
         }
     }
 }
