@@ -140,10 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e537ad7ac3941fe9e4419fc2215737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1084746094426328, guid: 3fd0c2c8a507c42aa8737592e2185712, type: 2}
-  spawnTime: 4
-  spawnPoints:
-  - {fileID: 229360412}
 --- !u!4 &229360412
 Transform:
   m_ObjectHideFlags: 0
@@ -5550,22 +5546,16 @@ MonoBehaviour:
     MoveSpeed: 4
   JumpAbilityArgs:
     JumpForce: 5
-    JumpsMax: 3
+    JumpsMax: 1
   GatherAbilityArgs:
     TargetTagsToGather:
     - redGem
-  moveSpeed: 0
-  jumpForce: 0
-  roundCheckRadius: 0.05
-  isGrounded: 0
-  jumpsMax: 1
-  currGems: 0
-  health: 3
-  shoot: 0
-  groundCheckPoint: {fileID: 517851761}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 1536
+  ShootAbilityArgs:
+    Projectile: {fileID: 0}
+    bulletSpawn: {fileID: 0}
+  DashAbilityArgs:
+    DashForce: 20
+    DashMax: 1
 --- !u!50 &326114383
 Rigidbody2D:
   serializedVersion: 4
@@ -5696,10 +5686,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e537ad7ac3941fe9e4419fc2215737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1084746094426328, guid: 3fd0c2c8a507c42aa8737592e2185712, type: 2}
-  spawnTime: 7
-  spawnPoints:
-  - {fileID: 356270960}
 --- !u!4 &356270960
 Transform:
   m_ObjectHideFlags: 0
@@ -5996,14 +5982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5682dcf985157ee448a4577f72267431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 326114386}
-  - {fileID: 0}
-  offset: {x: 0, y: 0, z: -100}
-  smoothTime: 0.5
-  minZoom: 40
-  maxZoom: 10
-  zoomLimiter: 50
 --- !u!1 &974536503
 GameObject:
   m_ObjectHideFlags: 0

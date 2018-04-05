@@ -10,5 +10,6 @@
         bool IsIntentingToDuck { get; }
         bool IsIntentingToAttack { get; }
         bool IsIntentingToPosses { get;  }
+        bool IsIntentingToDash { get;  }
     }
 }

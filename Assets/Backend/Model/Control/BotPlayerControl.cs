@@ -58,5 +58,12 @@ namespace Assets.Backend.Model.Control
                 return false;
             }
         }
+        public bool IsIntentingToDash
+        {
+            get
+            {
+                return false;
+            }
+        }
     }
 }

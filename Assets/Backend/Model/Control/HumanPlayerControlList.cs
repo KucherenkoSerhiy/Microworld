@@ -21,7 +21,8 @@ namespace Assets.Backend.Model.Input
                         KeyJump = KeyCode.UpArrow,
                         KeyMoveLeft = KeyCode.LeftArrow,
                         KeyMoveRight = KeyCode.RightArrow,
-                        KeyPossess = KeyCode.L
+                        KeyPossess = KeyCode.L,
+                        KeyDash = KeyCode.J
                     },
                     IsActive = true
 

@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     public JumpAbilityArgs JumpAbilityArgs;
     public GatherAbilityArgs GatherAbilityArgs;
     public ShootAbilityArgs ShootAbilityArgs;
+    public DashAbilityArgs DashAbilityArgs;
     
 	void Start ()
     {
@@ -34,12 +35,14 @@ public class PlayerController : MonoBehaviour {
         var gatherAbility = AbilityFactory.Instance.CreateGatherAbility(_character, GatherAbilityArgs);
         var shootAbility = AbilityFactory.Instance.CreateShootAbility(_character, ShootAbilityArgs);
         var possessAbility = AbilityFactory.Instance.CreatePossessAbility(_character);
+        var dashAbility = AbilityFactory.Instance.CreateDashAbility(_character, DashAbilityArgs);
 
         _character.Abilities.Add(moveAbility);
         _character.Abilities.Add(jumpAbility);
         _character.Abilities.Add(gatherAbility);
         _character.Abilities.Add(possessAbility);
         _character.Abilities.Add(shootAbility);
+        _character.Abilities.Add(dashAbility);
     }
 
     void Update () {

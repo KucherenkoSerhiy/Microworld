@@ -50,5 +50,10 @@ namespace Assets.Backend.GameCore.BusinessLogic.Factory
         {
             return new PossessionAbility(character, possessionAbilityArgs);
         }
+
+        public Ability CreateDashAbility(Character character, DashAbilityArgs dashAbilityArgs = null)
+        {
+            return new DashAbility(character, dashAbilityArgs);
+        }
     }
 }

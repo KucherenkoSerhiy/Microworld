@@ -20,6 +20,7 @@ namespace Assets.Backend.Model
 
         public override void Activate()
         {
+            if (AbilityArgs.Projectile == null) return;
             //if (Input.IsShooting)
             var projectile = projectileFactory.Create(AbilityArgs.Projectile, AbilityArgs.bulletSpawn);
             projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 5;
