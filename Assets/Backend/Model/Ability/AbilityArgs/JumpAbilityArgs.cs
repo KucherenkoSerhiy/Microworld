@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace Assets.Backend.Model
 {
@@ -6,8 +8,10 @@ namespace Assets.Backend.Model
     public class JumpAbilityArgs
     {
         public int JumpForce;
-        public bool IsGrounded { get; set; }
-        public int JumpsDone { get; set; }
+        internal bool IsGrounded;
+        internal int JumpsDone;
         public int JumpsMax;
+
+        public bool CanWallJump;
     }
 }

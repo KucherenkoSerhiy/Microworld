@@ -8,8 +8,17 @@ namespace Assets.Backend.Model
     {
         internal Character Character;
         internal IControl Input;
+        protected AbilityLocker _abilityLocker = new AbilityLocker();
 
-        // This thinking results to be unnatural... :(
+        public void DeactivateForTime(int time_ms)
+        {
+            _abilityLocker.DeactivateForTime(time_ms);
+        }
+
+        public bool IsActive()
+        {
+            return _abilityLocker.IsActive;
+        }
 
         /// <summary>
         ///  Called from Update() method in Unity script
@@ -19,7 +28,7 @@ namespace Assets.Backend.Model
         /// <summary>
         ///  Called from Collide() method in Unity script
         /// </summary>
-        /// <param name="other"></param>
+        /// <param name="other">With whom this object has collided</param>
         public abstract void Collide(Collision2D other);
     }
 }
