@@ -28,7 +28,8 @@ namespace Assets.Backend.Model
         {
             foreach (var ability in Abilities)
             {
-                ability.Activate();
+                if (ability.IsActive())
+                    ability.Activate();
             }
         }
 
@@ -36,7 +37,8 @@ namespace Assets.Backend.Model
         {
             foreach (var ability in Abilities)
             {
-                ability.Collide(other);
+                if (ability.IsActive())
+                    ability.Collide(other);
             }
 
             // health loss on touch enemy
@@ -46,7 +48,8 @@ namespace Assets.Backend.Model
         {
             foreach (var ability in Abilities)
             {
-                ability.Input = control;
+                if (ability.IsActive())
+                    ability.Input = control;
             }
         }
     }

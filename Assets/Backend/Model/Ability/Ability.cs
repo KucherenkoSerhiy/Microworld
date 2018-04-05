@@ -8,8 +8,17 @@ namespace Assets.Backend.Model
     {
         internal Character Character;
         internal IControl Input;
+        protected AbilityLocker _abilityLocker = new AbilityLocker();
 
-        // This thinking results to be unnatural... :(
+        public void DeactivateForTime(int time_ms)
+        {
+            _abilityLocker.DeactivateForTime(time_ms);
+        }
+
+        public bool IsActive()
+        {
+            return _abilityLocker.IsActive;
+        }
 
         /// <summary>
         ///  Called from Update() method in Unity script

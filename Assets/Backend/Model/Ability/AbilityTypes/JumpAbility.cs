@@ -30,16 +30,26 @@ namespace Assets.Backend.Model
         {
             if (!Input.IsIntentingToJump) return;
 
-            if (CanPerformWallJump())
+            if (CanWallJump())
                 PerformWallJump();
-                
             else if (CanJump())
                 PerformJump();
         }
 
-        private bool CanPerformWallJump()
+        public override void Collide(Collision2D other)
         {
-            return AbilityArgs.CanWallJump && !IsGrounded();
+            if (!IsGrounded()) return;
+
+            AbilityArgs.IsGrounded = true;
+            AbilityArgs.JumpsDone = 0;
+        }
+
+        private bool CanWallJump()
+        {
+            return AbilityArgs.CanWallJump 
+                && !IsGrounded()
+                && (IsTouchingWallLeft() || IsTouchingWallRight()
+            );
         }
 
         private void PerformWallJump()
@@ -48,6 +58,10 @@ namespace Assets.Backend.Model
                 IsTouchingWallLeft()? AbilityArgs.JumpForce : -AbilityArgs.JumpForce, 
                 AbilityArgs.JumpForce
             );
+            
+            var moveAbility = Character.Abilities.SingleOrDefault(x => x.GetType() == typeof(MoveAbility));
+            if (moveAbility != null)
+                moveAbility.DeactivateForTime(200);
         }
 
         private bool CanJump()
@@ -61,14 +75,6 @@ namespace Assets.Backend.Model
 
             AbilityArgs.IsGrounded = false;
             AbilityArgs.JumpsDone++;
-        }
-
-        public override void Collide(Collision2D other)
-        {
-            if (!IsGrounded()) return;
-
-            AbilityArgs.IsGrounded = true;
-            AbilityArgs.JumpsDone = 0;
         }
 
         private bool IsGrounded()
