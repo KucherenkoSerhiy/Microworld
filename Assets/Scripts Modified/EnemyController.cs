@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Backend.GameCore.BusinessLogic.Factory;
 using Assets.Backend.Model;
+using Backend.GameCore.BusinessLogic.Factory;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour {

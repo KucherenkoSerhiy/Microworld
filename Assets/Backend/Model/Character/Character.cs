@@ -5,12 +5,15 @@ using System;
 
 namespace Assets.Backend.Model
 {
+    public enum HorizontalDirection {Left, Right}
+    
     public class Character
     {
         public GameObject Representation { get; set; }
         public List<Ability> Abilities { get; set; }
         public HumanPlayerControl HumanPlayerControl { get; set; }
         public BotPlayerControl BotPlayerControl { get; set; }
+        public HorizontalDirection HorizontalDirection { get; set; }
 
         public Character()
         {

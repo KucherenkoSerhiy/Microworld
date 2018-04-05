@@ -5547,12 +5547,14 @@ MonoBehaviour:
   JumpAbilityArgs:
     JumpForce: 5
     JumpsMax: 1
+    CanWallJump: 0
   GatherAbilityArgs:
     TargetTagsToGather:
     - redGem
   ShootAbilityArgs:
-    Projectile: {fileID: 0}
-    bulletSpawn: {fileID: 0}
+    Projectile: {fileID: 1834685529697052, guid: bd56d591d03719a42a73f363a4bc8321,
+      type: 2}
+    bulletSpawn: {fileID: 450691444}
   DashAbilityArgs:
     DashForce: 20
     DashMax: 1
@@ -5656,6 +5658,7 @@ Transform:
   m_LocalScale: {x: 1.1690623, y: 1.3570445, z: 1}
   m_Children:
   - {fileID: 517851761}
+  - {fileID: 450691444}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5698,6 +5701,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &450691443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 450691444}
+  m_Layer: 8
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &450691444
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 450691443}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 326114386}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &517851760
 GameObject:
@@ -5889,6 +5920,7 @@ MonoBehaviour:
   JumpAbilityArgs:
     JumpForce: 10
     JumpsMax: 1
+    CanWallJump: 0
 --- !u!1 &871946440
 GameObject:
   m_ObjectHideFlags: 0
@@ -6203,6 +6235,7 @@ MonoBehaviour:
   JumpAbilityArgs:
     JumpForce: 10
     JumpsMax: 1
+    CanWallJump: 0
 --- !u!1001 &1285334221
 Prefab:
   m_ObjectHideFlags: 0
@@ -6454,3 +6487,4 @@ MonoBehaviour:
   JumpAbilityArgs:
     JumpForce: 10
     JumpsMax: 1
+    CanWallJump: 0

@@ -21,9 +21,16 @@ namespace Assets.Backend.Model
         public override void Activate()
         {
             if (Input.IsIntentingToMoveLeft)
+            {
+                Character.HorizontalDirection = HorizontalDirection.Left;
                 _rigidBody.velocity = new Vector2(-AbilityArgs.MoveSpeed, _rigidBody.velocity.y);
+            }
+                
             else if (Input.IsIntentingToMoveRight)
+            {
+                Character.HorizontalDirection = HorizontalDirection.Right;
                 _rigidBody.velocity = new Vector2(AbilityArgs.MoveSpeed, _rigidBody.velocity.y);
+            }
             else
                 _rigidBody.velocity = new Vector2(0, _rigidBody.velocity.y);
         }

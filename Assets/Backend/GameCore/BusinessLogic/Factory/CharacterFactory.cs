@@ -1,14 +1,9 @@
-﻿using Assets.Backend.Model;
+﻿using Assets.Backend.GameCore.Manager;
+using Assets.Backend.Model;
 using Assets.Backend.Model.Control;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Assets.Backend.GameCore.Manager;
-using Assets.Globals;
 using UnityEngine;
 
-namespace Assets.Backend.GameCore.BusinessLogic.Factory
+namespace Backend.GameCore.BusinessLogic.Factory
 {
     public class CharacterFactory
     {

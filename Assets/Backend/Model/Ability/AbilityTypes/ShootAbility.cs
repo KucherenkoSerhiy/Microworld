@@ -5,14 +5,14 @@ namespace Assets.Backend.Model
 {
     public class ShootAbility : Ability
     {
-        private ProjectileFactory projectileFactory;  
+        private MonoBehaviourUtils _monoBehaviourUtils;  
         public ShootAbilityArgs AbilityArgs { get; set; }
 
         public ShootAbility(Character character, ShootAbilityArgs abilityArgs)
         {
             this.Character = character;
             this.AbilityArgs = abilityArgs;
-            projectileFactory = new ProjectileFactory(); 
+            _monoBehaviourUtils = new MonoBehaviourUtils(); 
 
             Input = Character.GetInput();
 
@@ -22,7 +22,7 @@ namespace Assets.Backend.Model
         {
             if (AbilityArgs.Projectile == null) return;
             //if (Input.IsShooting)
-            var projectile = projectileFactory.Create(AbilityArgs.Projectile, AbilityArgs.bulletSpawn);
+            var projectile = _monoBehaviourUtils.CreateAndThenDestroy(AbilityArgs.Projectile, AbilityArgs.bulletSpawn, 2.0f);
             projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 5;
 
         }
