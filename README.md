@@ -1,6 +1,8 @@
 # Microworld
 
-We are justadslfers
+What we believe is life is just a little lie. The truth is invisible to the naked eye. Welcome to Microworld, explorers.
+
+
 
 
 The wiki of the project: https://github.com/KucherenkoSerhiy/Microworld/wiki
