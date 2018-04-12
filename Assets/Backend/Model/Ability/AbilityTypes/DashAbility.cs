@@ -32,13 +32,13 @@ namespace Assets.Backend.Model
 
             if (Character.HorizontalDirection == EnHorizontalDirection.Right)
             {
-                _rigidBody.velocity = new Vector2(AbilityArgs.DashForce, _rigidBody.velocity.y);
+                _rigidBody.AddForce (new Vector2(AbilityArgs.DashForce, _rigidBody.velocity.y));
                 Debug.Log("Dashing");
             }
 
             else if (Character.HorizontalDirection == EnHorizontalDirection.Left)
             {
-                _rigidBody.velocity = new Vector2(-1*AbilityArgs.DashForce, _rigidBody.velocity.y);
+                _rigidBody.AddForce(new Vector2(-1*AbilityArgs.DashForce, _rigidBody.velocity.y));
                 Debug.Log("Dashing");
             }
 
