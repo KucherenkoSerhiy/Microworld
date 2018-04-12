@@ -22,13 +22,13 @@ namespace Assets.Backend.Model
         {
             if (Input.IsIntentingToMoveLeft)
             {
-                Character.HorizontalDirection = HorizontalDirection.Left;
+                Character.HorizontalDirection = EnHorizontalDirection.Left;
                 _rigidBody.velocity = new Vector2(-AbilityArgs.MoveSpeed, _rigidBody.velocity.y);
             }
                 
             else if (Input.IsIntentingToMoveRight)
             {
-                Character.HorizontalDirection = HorizontalDirection.Right;
+                Character.HorizontalDirection = EnHorizontalDirection.Right;
                 _rigidBody.velocity = new Vector2(AbilityArgs.MoveSpeed, _rigidBody.velocity.y);
             }
             else

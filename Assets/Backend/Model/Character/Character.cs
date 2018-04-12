@@ -5,7 +5,7 @@ using System;
 
 namespace Assets.Backend.Model
 {
-    public enum HorizontalDirection {Left, Right}
+    public enum EnHorizontalDirection {Left, Right}
     
     public class Character
     {
@@ -13,7 +13,7 @@ namespace Assets.Backend.Model
         public List<Ability> Abilities { get; set; }
         public HumanPlayerControl HumanPlayerControl { get; set; }
         public BotPlayerControl BotPlayerControl { get; set; }
-        public HorizontalDirection HorizontalDirection { get; set; }
+        public EnHorizontalDirection HorizontalDirection { get; set; }
 
         public Character()
         {
