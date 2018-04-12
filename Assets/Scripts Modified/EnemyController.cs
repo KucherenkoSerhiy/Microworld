@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour {
 
     public MoveAbilityArgs MoveAbilityArgs;
     public JumpAbilityArgs JumpAbilityArgs;
+    public StickAbilityArgs StickAbilityArgs;
     
     void Start()
     {
@@ -28,11 +29,13 @@ public class EnemyController : MonoBehaviour {
 
     private void AddAbilities()
     {
-        var moveAbility = AbilityFactory.Instance.CreateMoveAbility(_character, MoveAbilityArgs);
-        var jumpAbility = AbilityFactory.Instance.CreateJumpAbility(_character, JumpAbilityArgs);
+        var moveAbility  = AbilityFactory.Instance.CreateMoveAbility(_character, MoveAbilityArgs);
+        var jumpAbility  = AbilityFactory.Instance.CreateJumpAbility(_character, JumpAbilityArgs);
+        var stickAbility = AbilityFactory.Instance.CreateStickAbility(_character, StickAbilityArgs);
 
         _character.Abilities.Add(moveAbility);
         _character.Abilities.Add(jumpAbility);
+        _character.Abilities.Add(stickAbility);
     }
 
     void Update()
