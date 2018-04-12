@@ -33,16 +33,19 @@ namespace Assets.Backend.Model
 
 		public override void Collide(Collision2D other)
 		{
-			if (!IsSticked() || !Stickable(other)) return;
+            // Return if is Sticked (can only stick to "other" once!
+            //           or if "other" is not Stickable
+			if (AbilityArgs.IsSticked || !Stickable(other)) return;
 
 			AbilityArgs.IsSticked = true;
-            Debug.Log("Stick");
-		}
+            // Get other MoveSpeed and divide it by SlowingFactor
+            int OtherMoveSpeed = other.gameObject.GetComponent<PlayerController>().MoveAbilityArgs.MoveSpeed;
+            OtherMoveSpeed = OtherMoveSpeed / AbilityArgs.SlowingFactor;
+            other.gameObject.GetComponent<PlayerController>().MoveAbilityArgs.MoveSpeed = OtherMoveSpeed;
 
-		private bool IsSticked()
-		{
-            return true;
-		}
+            Debug.Log("Stick");
+            //Debug.Log(other.gameObject.GetComponent<PlayerController>().MoveAbilityArgs.MoveSpeed);
+        }
 
         private bool Stickable(Collision2D other) 
         {

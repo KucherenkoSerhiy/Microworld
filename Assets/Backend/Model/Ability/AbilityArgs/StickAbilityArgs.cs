@@ -9,6 +9,7 @@ namespace Assets.Backend.Model
 	public class StickAbilityArgs
 	{
 		public List<string> TargetTagsToStick;
+        public int SlowingFactor;
 		internal bool IsSticked;
 	}
 }
