@@ -10,6 +10,6 @@ namespace Assets.Backend.Model
 	{
 		public List<string> TargetTagsToStick;
         public int SlowingFactor;
-		internal bool IsSticked;
+        internal bool IsSticked;
 	}
 }
