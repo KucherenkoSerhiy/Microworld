@@ -8,6 +8,7 @@ namespace Assets.Backend.Model
         public MoveAbilityArgs AbilityArgs { get; set; }
 
         private readonly Rigidbody2D _rigidBody;
+        private readonly Transform _transform;
 
         public MoveAbility(Character character, MoveAbilityArgs abilityArgs)
         {
@@ -16,18 +17,37 @@ namespace Assets.Backend.Model
 
             Input = Character.GetInput();
             _rigidBody = Character.Representation.GetComponent<Rigidbody2D>();
+            _transform = Character.Representation.GetComponent<Transform>();
         }
 
         public override void Activate()
         {
             if (Input.IsIntentingToMoveLeft)
             {
+                
+                if(Character.HorizontalDirection == EnHorizontalDirection.Right)
+                {
+                    _transform.localScale = new Vector3(
+                            _transform.localScale.x * -1,
+                            _transform.localScale.y,
+                            _transform.localScale.z);
+                }
+
                 Character.HorizontalDirection = EnHorizontalDirection.Left;
+
                 _rigidBody.velocity = new Vector2(-AbilityArgs.MoveSpeed, _rigidBody.velocity.y);
             }
                 
             else if (Input.IsIntentingToMoveRight)
             {
+                if (Character.HorizontalDirection == EnHorizontalDirection.Left)
+                {
+                    _transform.localScale = new Vector3(
+                            _transform.localScale.x * -1,
+                            _transform.localScale.y,
+                            _transform.localScale.z);
+                }
+
                 Character.HorizontalDirection = EnHorizontalDirection.Right;
                 _rigidBody.velocity = new Vector2(AbilityArgs.MoveSpeed, _rigidBody.velocity.y);
             }

@@ -23,8 +23,20 @@ namespace Assets.Backend.Model
             if (AbilityArgs.Projectile == null) return;
             if (Input.IsIntentingToShoot)
             {
+                int potency = 5;
                 var projectile = _monoBehaviourUtils.CreateAndThenDestroy(AbilityArgs.Projectile, AbilityArgs.bulletSpawn, 2.0f);
-                projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 5;
+
+                
+                if (Character.HorizontalDirection == EnHorizontalDirection.Right)
+                {
+                    
+                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * potency;
+                }
+                else
+                {
+                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * -potency;
+                }
+
             }
 
         }
