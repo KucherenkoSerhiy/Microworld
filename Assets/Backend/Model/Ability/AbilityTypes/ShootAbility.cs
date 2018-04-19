@@ -21,9 +21,11 @@ namespace Assets.Backend.Model
         public override void Activate()
         {
             if (AbilityArgs.Projectile == null) return;
-            //if (Input.IsShooting)
-            var projectile = _monoBehaviourUtils.CreateAndThenDestroy(AbilityArgs.Projectile, AbilityArgs.bulletSpawn, 2.0f);
-            projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 5;
+            if (Input.IsIntentingToShoot)
+            {
+                var projectile = _monoBehaviourUtils.CreateAndThenDestroy(AbilityArgs.Projectile, AbilityArgs.bulletSpawn, 2.0f);
+                projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 5;
+            }
 
         }
 

@@ -11,6 +11,7 @@
         public bool IsIntentingToJump { get { return Input.IsIntentingToJump && IsActive; } }
         public bool IsIntentingToDuck { get { return Input.IsIntentingToDuck && IsActive; } }   
         public bool IsIntentingToAttack { get { return Input.IsIntentingToAttack && IsActive; } }
+        public bool IsIntentingToShoot { get { return Input.IsIntentingToShoot && IsActive; } }
         public bool IsIntentingToPosses { get { return Input.IsIntentingToPossess && IsActive; } }
         public bool IsIntentingToDash { get { return Input.IsIntentingToDash && IsActive; } }
     }
