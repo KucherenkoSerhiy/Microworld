@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Miquel\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_microworld.-790069815.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Miquel\Documents\Unity\Microworld" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Backend" t="Include">
+          <e p="GameCore" t="Include">
+            <e p="A.I" t="Include">
+              <e p="BasicPursuer.cs" t="Include" />
+            </e>
+            <e p="BusinessLogic" t="Include">
+              <e p="Factory" t="Include">
+                <e p="AbilityFactory.cs" t="Include" />
+                <e p="CharacterFactory.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Manager" t="Include">
+              <e p="CharacterManager.cs" t="Include" />
+              <e p="ControlManager.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Model" t="Include">
+            <e p="Ability" t="Include">
+              <e p="Ability.cs" t="Include" />
+              <e p="AbilityArgs" t="Include">
+                <e p="DashAbilityArgs.cs" t="Include" />
+                <e p="GatherAbilityArgs.cs" t="Include" />
+                <e p="InvincibleAbilityArgs.cs" t="Include" />
+                <e p="JumpAbilityArgs.cs" t="Include" />
+                <e p="MoveAbilityArgs.cs" t="Include" />
+                <e p="PossessionAbilityArgs.cs" t="Include" />
+                <e p="ShootAbilityArgs.cs" t="Include" />
+              </e>
+              <e p="AbilityLocker.cs" t="Include" />
+              <e p="AbilityTypes" t="Include">
+                <e p="DashAbility.cs" t="Include" />
+                <e p="GatherAbility.cs" t="Include" />
+                <e p="InvincibleAbility.cs" t="Include" />
+                <e p="JumpAbility.cs" t="Include" />
+                <e p="MoveAbility.cs" t="Include" />
+                <e p="PossessionAbility.cs" t="Include" />
+                <e p="ShootAbility.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Character" t="Include">
+              <e p="Character.cs" t="Include" />
+              <e p="CharacterList.cs" t="Include" />
+            </e>
+            <e p="Control" t="Include">
+              <e p="BotPlayerControl.cs" t="Include" />
+              <e p="BotPlayerControlList.cs" t="Include" />
+              <e p="HumanPlayerControl.cs" t="Include" />
+              <e p="HumanPlayerControlList.cs" t="Include" />
+              <e p="IControl.cs" t="Include" />
+              <e p="Input" t="Include">
+                <e p="EnBotInputSource.cs" t="Include" />
+                <e p="EnPlayerInputSource.cs" t="Include" />
+                <e p="HumanPlayerInput.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Globals" t="Include">
+          <e p="Constants.cs" t="Include" />
+          <e p="MonoBehaviourUtils.cs" t="Include" />
+        </e>
+        <e p="Plugins" t="Include">
+          <e p="Editor" t="Include">
+            <e p="JetBrains" t="Include">
+              <e p="Unity3DRider.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="MultipleTargetCamera.cs" t="Include" />
+        </e>
+        <e p="Scripts Modified" t="Include">
+          <e p="EnemyController.cs" t="Include" />
+          <e p="PlayerController.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="microworld.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

@@ -214,7 +214,7 @@
       <HintPath>Library\UnityAssemblies\UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:\skucherenko\repos\Microworld\Library/resharper-unity-libs/nunit3.5.0/nunit.framework.dll</HintPath>
+      <HintPath>C:\Users\Miquel\Documents\Unity\Microworld\Library\resharper-unity-libs\nunit3.5.0\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Timeline">
       <HintPath>Library\UnityAssemblies\UnityEngine.Timeline.dll</HintPath>

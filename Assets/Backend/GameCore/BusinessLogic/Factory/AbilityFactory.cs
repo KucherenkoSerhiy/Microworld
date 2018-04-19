@@ -22,6 +22,7 @@ namespace Assets.Backend.GameCore.BusinessLogic.Factory
                 }
                 return _instance;
             }
+            
         }
 
         #endregion

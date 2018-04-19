@@ -50,16 +50,16 @@ public class PlayerController : MonoBehaviour {
         _character.Act();
 	}
 
-    void OnCollisionStay2D(Collision2D other) {
-        //TODO Take damage when touching the enemy if not invincible        
-	}
-
-	void OnCollisionEnter2D(Collision2D other)
-	{
-        //Warning: Must set Unity parameter: https://answers.unity.com/questions/756380/raycast-ignore-itself.html
-
-        _character.Collide(other);
-
-        //TODO Take damage when touching the enemy if not invincible
-    }
+//    void OnCollisionStay2D(Collision2D other) {
+//        //TODO Take damage when touching the enemy if not invincible        
+//	}
+//
+//	void OnCollisionEnter2D(Collision2D other)
+//	{
+//        //Warning: Must set Unity parameter: https://answers.unity.com/questions/756380/raycast-ignore-itself.html
+//
+//        _character.Collide(other);
+//
+//        //TODO Take damage when touching the enemy if not invincible
+//    }
 }
