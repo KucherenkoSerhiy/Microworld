@@ -21,9 +21,23 @@ namespace Assets.Backend.Model
         public override void Activate()
         {
             if (AbilityArgs.Projectile == null) return;
-            //if (Input.IsShooting)
-            var projectile = _monoBehaviourUtils.CreateAndThenDestroy(AbilityArgs.Projectile, AbilityArgs.bulletSpawn, 2.0f);
-            projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 5;
+            if (Input.IsIntentingToShoot)
+            {
+                int potency = 5;
+                var projectile = _monoBehaviourUtils.CreateAndThenDestroy(AbilityArgs.Projectile, AbilityArgs.bulletSpawn, 2.0f);
+
+                
+                if (Character.HorizontalDirection == EnHorizontalDirection.Right)
+                {
+                    
+                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * potency;
+                }
+                else
+                {
+                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * -potency;
+                }
+
+            }
 
         }
 

@@ -51,6 +51,14 @@ namespace Assets.Backend.Model.Control
             }
         }
 
+        public bool IsIntentingToShoot
+        {
+            get
+            {
+                return false;
+            }
+        }
+
         public bool IsIntentingToPosses
         {
             get
