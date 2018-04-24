@@ -25,20 +25,31 @@ namespace Assets.Backend.Model
 
         public override void Activate()
         {
-            if (Input.IsIntentingToPosses && !AlreadyPossessed())
-            {
-                Possess();
-            }
+            //if (Input.IsIntentingToPosses && !AlreadyPossessed())
+            //{
+             //   Possess();
+            //}
 
         }
 
-        private bool AlreadyPossessed()
+        public override void Collide(Collision2D other) 
         {
-            Character austin = CharacterManager.Instance.GetCharacterList().GetCharacterByName("Ostin Powers");
-            return !austin.BotPlayerControl.IsActive && austin.HumanPlayerControl != null;
+            if (AlreadyPossessed(other) || !Possessable(other)) return;
+            Debug.Log("Possessing");
+            //Character austin = CharacterManager.Instance.GetCharacterList().GetCharacterByName("Ostin Powers");
+            //return !austin.BotPlayerControl.IsActive && austin.HumanPlayerControl != null;
+            // for now do nothing
         }
 
-        private void Possess()
+        private bool AlreadyPossessed(Collision2D other)
+        {
+            return false;
+            //Character austin = CharacterManager.Instance.GetCharacterList().GetCharacterByName("Ostin Powers");
+            //return !austin.BotPlayerControl.IsActive && austin.HumanPlayerControl != null;
+
+        }
+
+        private void Possess(Collision2D other)
         {
             var control = ControlManager.Instance.GetHumanPlayerControlList().GetPlayer(EnPlayerInputSource.PlayerTwo);
             // TODO: now possesses only Ostin Powers
@@ -50,10 +61,11 @@ namespace Assets.Backend.Model
             austin.SetControl(control);
         }
 
-        public override void Collide(Collision2D other)
-        {
-            // for now do nothing
+        private bool Possessable(Collision2D other) {
+            return AbilityArgs.TargetTagsToPossess.Contains(other.collider.tag);
         }
+
+        
     }
 
 }

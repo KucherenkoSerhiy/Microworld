@@ -22,6 +22,7 @@ namespace Assets.Backend.Model.Input
                         KeyMoveLeft = KeyCode.LeftArrow,
                         KeyMoveRight = KeyCode.RightArrow,
                         KeyShoot = KeyCode.I,
+                        KeyThrowChip = KeyCode.G,
                         KeyPossess = KeyCode.L,
                         KeyDash = KeyCode.J
                     },

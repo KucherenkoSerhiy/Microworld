@@ -10,6 +10,7 @@ public class PlayerInput
     public KeyCode KeyDuck { private get; set; }
     public KeyCode KeyAttack { private get; set; }
     public KeyCode KeyShoot { private get; set; }
+    public KeyCode KeyThrowChip { private get; set; }
     public KeyCode KeyPossess { private get; set; }
     public KeyCode KeyDash { private get; set; }
 
@@ -19,6 +20,7 @@ public class PlayerInput
     public bool IsIntentingToDuck { get { return Input.GetKeyDown(KeyDuck); } }
     public bool IsIntentingToAttack { get { return Input.GetKeyDown(KeyAttack); } }
     public bool IsIntentingToShoot { get { return Input.GetKeyDown(KeyShoot); } }
+    public bool IsIntentingToThrowChip { get { return Input.GetKeyDown(KeyThrowChip); } }
     public bool IsIntentingToPossess { get { return Input.GetKey(KeyPossess); } }
     public bool IsIntentingToDash { get { return Input.GetKeyDown(KeyDash); } }
 }

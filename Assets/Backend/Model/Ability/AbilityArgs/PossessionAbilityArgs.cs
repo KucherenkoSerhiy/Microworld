@@ -9,6 +9,7 @@ namespace Assets.Backend.Model
     public class PossessionAbilityArgs
     {
         public Character Target;
-
+        public List<string> TargetTagsToPossess;
+        //TargetTagsToPossess.add("Enemy");
     }
 }

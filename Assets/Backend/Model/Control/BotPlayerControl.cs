@@ -59,6 +59,12 @@ namespace Assets.Backend.Model.Control
             }
         }
 
+        public bool IsIntentingToThrowChip {
+            get {
+                return false;
+            }
+        }
+
         public bool IsIntentingToPosses
         {
             get

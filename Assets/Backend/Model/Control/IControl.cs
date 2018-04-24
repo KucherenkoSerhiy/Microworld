@@ -10,6 +10,7 @@
         bool IsIntentingToDuck { get; }
         bool IsIntentingToAttack { get; }
         bool IsIntentingToShoot { get; }
+        bool IsIntentingToThrowChip { get; }
         bool IsIntentingToPosses { get;  }
         bool IsIntentingToDash { get;  }
     }
