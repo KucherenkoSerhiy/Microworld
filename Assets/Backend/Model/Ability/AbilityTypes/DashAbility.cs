@@ -14,10 +14,6 @@ namespace Assets.Backend.Model
         private readonly Rigidbody2D _rigidBody;
         private readonly BoxCollider2D _boxCollider2D;
         private readonly Transform _transform;
-        private float _DashDuration;
-        private bool _IsDashing;
-    
-      
 
         public DashAbility(Character character, DashAbilityArgs abilityArgs)
         {
@@ -28,41 +24,26 @@ namespace Assets.Backend.Model
             _rigidBody = Character.Representation.GetComponent<Rigidbody2D>();
             _boxCollider2D = Character.Representation.GetComponent<BoxCollider2D>();
             _transform = Character.Representation.GetComponent<Transform>();
-            _IsDashing = false;
-            _DashDuration = 0f;
         }
 
         public override void Activate()
         {
-            if (!Input.IsIntentingToDash && !_IsDashing || CanNotDash()) return;
-            Debug.Log("hola");
+            if (!Input.IsIntentingToDash || CanNotDash()) return;
 
-            OnDash();
-            _IsDashing = false;
-            AbilityArgs.DashDone++;
-        }
-
-       private void OnDash()
-        {
-            _DashDuration = Time.deltaTime;
-            Debug.Log("jajaja");
-            while (_DashDuration < AbilityArgs.DashTime)
+            if (Character.HorizontalDirection == EnHorizontalDirection.Right)
             {
-                Debug.Log("Esto deberia entrar");
-
-                if (Character.HorizontalDirection == EnHorizontalDirection.Right)
-                {
-                    _rigidBody.AddForce(new Vector2(AbilityArgs.DashForce, _rigidBody.velocity.y));
-                    Debug.Log("Dashing");
-                }
-
-                else if (Character.HorizontalDirection == EnHorizontalDirection.Left)
-                {
-                    _rigidBody.AddForce(new Vector2(-1 * AbilityArgs.DashForce, _rigidBody.velocity.y));
-                    Debug.Log("Dashing");
-                }
-                yield return null;
+                _rigidBody.velocity = new Vector2(AbilityArgs.DashForce, _rigidBody.velocity.y);
+                Debug.Log("Dashing");
             }
+
+            else if (Character.HorizontalDirection == EnHorizontalDirection.Left)
+            {
+                _rigidBody.velocity = new Vector2(-1 * AbilityArgs.DashForce, _rigidBody.velocity.y);
+                Debug.Log("Dashing");
+            }
+
+            AbilityArgs.IsGrounded = false;
+            AbilityArgs.DashDone++;
         }
 
         private bool CanNotDash()

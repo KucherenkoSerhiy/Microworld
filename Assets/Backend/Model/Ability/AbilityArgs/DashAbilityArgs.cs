@@ -9,5 +9,6 @@ namespace Assets.Backend.Model
         public bool IsGrounded { get; set; }
         public int DashDone { get; set; }
         public int DashMax;
+        public int DashTime;
     }
 }
