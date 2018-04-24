@@ -22,6 +22,7 @@ namespace Assets.Backend.GameCore.BusinessLogic.Factory
                 }
                 return _instance;
             }
+            
         }
 
         #endregion
@@ -56,8 +57,13 @@ namespace Assets.Backend.GameCore.BusinessLogic.Factory
             return new DashAbility(character, dashAbilityArgs);
         }
 
-        public Ability CreateStickAbility(Character character, StickAbilityArgs stickAbilityArgs = null) {
+		public Ability CreateStickAbility(Character character, StickAbilityArgs stickAbilityArgs = null) {
             return new StickAbility(character, stickAbilityArgs);
+        }
+
+        public Ability CreateLifeAbility(Character character, LifeAbilityArgs lifeAbilityArgs)
+        {
+            return new LifeAbility(character, lifeAbilityArgs);
         }
     }
 }
