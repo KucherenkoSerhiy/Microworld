@@ -5548,6 +5548,12 @@ MonoBehaviour:
     JumpForce: 5
     JumpsMax: 1
     CanWallJump: 0
+  LifeAbilityArgs:
+    HitPoints: 100
+    ArmorPoints: 60
+    Resistance:
+      PhysicalResistance_tpc: 90
+      AcidResistance_tpc: 0
   GatherAbilityArgs:
     TargetTagsToGather:
     - redGem
@@ -5915,12 +5921,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BotInput: 1
+  TouchDamage:
+    PhysicalDamage: 0
+    AcidDamage: 0
+  LifeAbilityArgs:
+    HitPoints: 0
+    ArmorPoints: 0
+    Resistance:
+      PhysicalResistance_tpc: 0
+      AcidResistance_tpc: 0
   MoveAbilityArgs:
     MoveSpeed: 2
   JumpAbilityArgs:
     JumpForce: 10
     JumpsMax: 1
     CanWallJump: 0
+  StickAbilityArgs:
+    TargetTagsToStick: []
+    SlowingFactor: 0
 --- !u!1 &871946440
 GameObject:
   m_ObjectHideFlags: 0
@@ -6230,12 +6248,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BotInput: 1
+  TouchDamage:
+    PhysicalDamage: 10
+    AcidDamage: 10
+  LifeAbilityArgs:
+    HitPoints: 0
+    ArmorPoints: 0
+    Resistance:
+      PhysicalResistance_tpc: 0
+      AcidResistance_tpc: 0
   MoveAbilityArgs:
     MoveSpeed: 2
   JumpAbilityArgs:
     JumpForce: 10
     JumpsMax: 1
     CanWallJump: 0
+  StickAbilityArgs:
+    TargetTagsToStick: []
+    SlowingFactor: 0
 --- !u!1001 &1285334221
 Prefab:
   m_ObjectHideFlags: 0
@@ -6482,9 +6512,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BotInput: 1
+  TouchDamage:
+    PhysicalDamage: 0
+    AcidDamage: 0
+  LifeAbilityArgs:
+    HitPoints: 0
+    ArmorPoints: 0
+    Resistance:
+      PhysicalResistance_tpc: 0
+      AcidResistance_tpc: 0
   MoveAbilityArgs:
     MoveSpeed: 2
   JumpAbilityArgs:
     JumpForce: 10
     JumpsMax: 1
     CanWallJump: 0
+  StickAbilityArgs:
+    TargetTagsToStick: []
+    SlowingFactor: 0
