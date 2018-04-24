@@ -28,36 +28,44 @@ namespace Assets.Backend.Model
 
         public override void Activate()
         {
-            if (!Input.IsIntentingToDash || CanNotDash()) return;
+            if (!Input.IsIntentingToDash) return;
 
+            if (DashStatus())
+                PerformDash();
+        }
+
+        private void PerformDash()
+        { 
             if (Character.HorizontalDirection == EnHorizontalDirection.Right)
             {
-                _rigidBody.velocity = new Vector2(AbilityArgs.DashForce, _rigidBody.velocity.y);
-                Debug.Log("Dashing");
+                _rigidBody.velocity = _transform.right * AbilityArgs.DashForce;
+                //_rigidBody.velocity = new Vector2(AbilityArgs.DashForce, _rigidBody.velocity.y);
             }
 
             else if (Character.HorizontalDirection == EnHorizontalDirection.Left)
             {
-                _rigidBody.velocity = new Vector2(-1 * AbilityArgs.DashForce, _rigidBody.velocity.y);
-                Debug.Log("Dashing");
+                _rigidBody.velocity = _transform.right * -AbilityArgs.DashForce;
+                //_rigidBody.velocity = new Vector2(-1 * AbilityArgs.DashForce, _rigidBody.velocity.y);
             }
 
-            AbilityArgs.IsGrounded = false;
-            AbilityArgs.DashDone++;
+            if (!IsGrounded())
+            {
+                AbilityArgs.DashPerformed++;
+                AbilityArgs.AirDashDone = true;
+            }
         }
 
-        private bool CanNotDash()
+        private bool DashStatus()
         {
-            return !AbilityArgs.IsGrounded && (AbilityArgs.DashDone >= AbilityArgs.DashMax);
+            return !AbilityArgs.AirDashDone || AbilityArgs.DashPerformed < AbilityArgs.DashMax;
         }
 
         public override void Collide(Collision2D other)
         {
-
             if (!IsGrounded()) return;
 
-            AbilityArgs.IsGrounded = true;
-            AbilityArgs.DashDone = 0;
+            AbilityArgs.AirDashDone = false;
+            AbilityArgs.DashPerformed = 0;
         }
 
         private bool IsGrounded()

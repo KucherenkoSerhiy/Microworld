@@ -6,9 +6,8 @@ namespace Assets.Backend.Model
     public class DashAbilityArgs
     {
         public int DashForce;
-        public bool IsGrounded { get; set; }
-        public int DashDone { get; set; }
+        public bool AirDashDone { get; set; }
+        public int DashPerformed { get; set; }
         public int DashMax;
-        public int DashTime;
     }
 }
