@@ -6,12 +6,13 @@ using System.Text;
 using Assets.Backend.GameCore.Manager;
 using UnityEngine;
 
+
 namespace Assets.Backend.Model
 {
     public class PossessionAbility : Ability
     {
         public PossessionAbilityArgs AbilityArgs { get; set; }
-
+        private MonoBehaviourUtils _monoBehaviourUtils;
         private readonly Rigidbody2D _rigidBody;
 
         public PossessionAbility(Character character, PossessionAbilityArgs abilityArgs = null)
@@ -34,35 +35,36 @@ namespace Assets.Backend.Model
 
         public override void Collide(Collision2D other) 
         {
-            if (AlreadyPossessed(other) || !Possessable(other)) return;
-            Debug.Log("Possessing");
-            //Character austin = CharacterManager.Instance.GetCharacterList().GetCharacterByName("Ostin Powers");
-            //return !austin.BotPlayerControl.IsActive && austin.HumanPlayerControl != null;
-            // for now do nothing
+            if (!Possessable(other) || AlreadyPossessed(other)) return;
+            Debug.Log("we in baby");
+            Possess(other);
         }
 
         private bool AlreadyPossessed(Collision2D other)
         {
-            return false;
-            //Character austin = CharacterManager.Instance.GetCharacterList().GetCharacterByName("Ostin Powers");
-            //return !austin.BotPlayerControl.IsActive && austin.HumanPlayerControl != null;
-
+            Character otherCharacter = CharacterManager.Instance.GetCharacterList().GetCharacterByGameObject(other.gameObject);
+            return !otherCharacter.BotPlayerControl.IsActive && otherCharacter.HumanPlayerControl != null;
         }
 
         private void Possess(Collision2D other)
         {
             var control = ControlManager.Instance.GetHumanPlayerControlList().GetPlayer(EnPlayerInputSource.PlayerTwo);
-            // TODO: now possesses only Ostin Powers
-
-            Character austin = CharacterManager.Instance.GetCharacterList().GetCharacterByName("Ostin Powers");
-
-            austin.HumanPlayerControl = control;
-            austin.BotPlayerControl.IsActive = false;
-            austin.SetControl(control);
+            Character otherCharacter = CharacterManager.Instance.GetCharacterList().GetCharacterByGameObject(other.gameObject);
+            otherCharacter.HumanPlayerControl = control;
+            otherCharacter.BotPlayerControl.IsActive = false;
+            otherCharacter.SetControl(control);
         }
 
         private bool Possessable(Collision2D other) {
-            return AbilityArgs.TargetTagsToPossess.Contains(other.collider.tag);
+            Character otherCharacter = CharacterManager.Instance.GetCharacterList().GetCharacterByGameObject(other.gameObject);
+            if (otherCharacter == null) 
+            {
+                return false;
+            } 
+            else 
+            {
+                return otherCharacter.CanBePossessed;
+            }
         }
 
         

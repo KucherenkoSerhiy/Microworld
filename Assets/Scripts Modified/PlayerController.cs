@@ -8,7 +8,7 @@ using Backend.GameCore.BusinessLogic.Factory;
 public class PlayerController : MonoBehaviour {
 
     public EnPlayerInputSource PlayerInput;
-    private Character _character;
+    public Character _character;
 
     public MoveAbilityArgs MoveAbilityArgs;
     public JumpAbilityArgs JumpAbilityArgs;

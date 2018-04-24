@@ -8,6 +8,7 @@ namespace Assets.Backend.Model {
         private MonoBehaviourUtils _monoBehaviourUtils;
         public PossessionAbilityArgs PossessionAbilityArgs;
         public ThrowChipAbilityArgs AbilityArgs { get; set; }
+        public EnBotInputSource BotInput;
 
         public ThrowChipAbility(Character character, ThrowChipAbilityArgs abilityArgs) {
             this.Character = character;
@@ -21,20 +22,19 @@ namespace Assets.Backend.Model {
         public override void Activate() {
             if (AbilityArgs.Chip == null) return;
             if (Input.IsIntentingToThrowChip) {
-                Debug.Log("THROWING...");
                 CreateChip();
-                var projectile = _monoBehaviourUtils.CreateAndThenDestroy(AbilityArgs.Chip, AbilityArgs.chipSpawn, 2.0f);
-                projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 5;
+                
+               
             }
 
         }
 
-        private void CreateChip() {
-            Debug.Log("Creating Chip");
-            //AbilityArgs.chipCharacter = CharacterFactory.Instance.CreateCharacter(AbilityArgs.Chip, null, null);
-            //var possessAbility = AbilityFactory.Instance.CreatePossessAbility(AbilityArgs.chipCharacter, PossessionAbilityArgs);
-            //AbilityArgs.chipCharacter.Abilities.Add(possessAbility);
-            //Debug.Log(AbilityArgs.chipCharacter);
+        private void CreateChip() 
+        {
+            Debug.Log("ThrowChipAbility: CreateChip()");
+            var projectile = _monoBehaviourUtils.CreateAndThenDestroy(AbilityArgs.Chip, AbilityArgs.chipSpawn, 2.0f);
+            projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 5;
+            projectile.AddComponent<ChipController>();
         }
 
         public override void Collide(Collision2D other) {
