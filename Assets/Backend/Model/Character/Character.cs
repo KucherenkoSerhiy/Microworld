@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Backend.Model;
 
 namespace Assets.Backend.Model
 {
@@ -14,6 +15,7 @@ namespace Assets.Backend.Model
         public HumanPlayerControl HumanPlayerControl { get; set; }
         public BotPlayerControl BotPlayerControl { get; set; }
         public EnHorizontalDirection HorizontalDirection { get; set; }
+        public Damage TouchDamage { get; set; }
 
         public Character()
         {

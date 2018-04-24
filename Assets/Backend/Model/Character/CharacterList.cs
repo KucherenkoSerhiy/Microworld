@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Assets.Backend.Model
 {
@@ -17,9 +18,14 @@ namespace Assets.Backend.Model
             Characters.Add(character);
         }
 
-        public Character GetCharacterByName(string tag)
+        public Character GetCharacterByName(string name)
         {
-            return Characters.SingleOrDefault(x => x.Representation.name == tag);
+            return Characters.SingleOrDefault(x => x.Representation.name == name);
+        }
+
+        public Character GetCharacterByGameObject(GameObject gameObject)
+        {
+            return Characters.SingleOrDefault(x => x.Representation == gameObject);
         }
     }
 }
