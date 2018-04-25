@@ -51,7 +51,9 @@ namespace Assets.Backend.Model
             var control = ControlManager.Instance.GetHumanPlayerControlList().GetPlayer(EnPlayerInputSource.PlayerTwo);
             Character otherCharacter = CharacterManager.Instance.GetCharacterList().GetCharacterByGameObject(other.gameObject);
             otherCharacter.HumanPlayerControl = control;
+            Debug.Log(otherCharacter.BotPlayerControl.IsActive);
             otherCharacter.BotPlayerControl.IsActive = false;
+            Debug.Log(otherCharacter.BotPlayerControl.IsActive);
             otherCharacter.SetControl(control);
         }
 
