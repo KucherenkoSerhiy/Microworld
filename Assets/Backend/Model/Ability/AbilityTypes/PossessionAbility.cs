@@ -12,7 +12,7 @@ namespace Assets.Backend.Model
     public class PossessionAbility : Ability
     {
         public PossessionAbilityArgs AbilityArgs { get; set; }
-        private MonoBehaviourUtils _monoBehaviourUtils;
+        
         private readonly Rigidbody2D _rigidBody;
 
         public PossessionAbility(Character character, PossessionAbilityArgs abilityArgs = null)
@@ -51,9 +51,7 @@ namespace Assets.Backend.Model
             var control = ControlManager.Instance.GetHumanPlayerControlList().GetPlayer(EnPlayerInputSource.PlayerTwo);
             Character otherCharacter = CharacterManager.Instance.GetCharacterList().GetCharacterByGameObject(other.gameObject);
             otherCharacter.HumanPlayerControl = control;
-            Debug.Log(otherCharacter.BotPlayerControl.IsActive);
             otherCharacter.BotPlayerControl.IsActive = false;
-            Debug.Log(otherCharacter.BotPlayerControl.IsActive);
             otherCharacter.SetControl(control);
         }
 

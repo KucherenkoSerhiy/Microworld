@@ -32,7 +32,7 @@ namespace Assets.Backend.Model {
         private void CreateChip() 
         {
             Debug.Log("ThrowChipAbility: CreateChip()");
-            var projectile = _monoBehaviourUtils.CreateAndThenDestroy(AbilityArgs.Chip, AbilityArgs.chipSpawn, 2.0f);
+            var projectile = _monoBehaviourUtils.Create(AbilityArgs.Chip, AbilityArgs.chipSpawn);
             projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 5;
             projectile.AddComponent<ChipController>();
         }
