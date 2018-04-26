@@ -11,7 +11,7 @@ namespace Assets.Backend.Model
         internal bool IsGrounded;
         internal int JumpsDone;
         public int JumpsMax;
-
+        public float FallMultiplier;
         public bool CanWallJump;
     }
 }
