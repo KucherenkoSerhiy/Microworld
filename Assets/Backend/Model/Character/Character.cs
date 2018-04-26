@@ -13,6 +13,7 @@ namespace Assets.Backend.Model
         public GameObject Representation { get; set; }
         public List<Ability> Abilities { get; set; }
         public HumanPlayerControl HumanPlayerControl { get; set; }
+        public bool CanBePossessed { get; set; }
         public BotPlayerControl BotPlayerControl { get; set; }
         public EnHorizontalDirection HorizontalDirection { get; set; }
         public Damage TouchDamage { get; set; }

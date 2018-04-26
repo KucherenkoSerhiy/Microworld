@@ -57,7 +57,13 @@ namespace Assets.Backend.GameCore.BusinessLogic.Factory
             return new DashAbility(character, dashAbilityArgs);
         }
 
-		public Ability CreateStickAbility(Character character, StickAbilityArgs stickAbilityArgs = null) {
+        internal Ability CreateThrowChipAbility(Character character, ThrowChipAbilityArgs abilityArgs) 
+        {
+            return new ThrowChipAbility(character, abilityArgs);
+        }
+
+        public Ability CreateStickAbility(Character character, StickAbilityArgs stickAbilityArgs = null) 
+        {
             return new StickAbility(character, stickAbilityArgs);
         }
 

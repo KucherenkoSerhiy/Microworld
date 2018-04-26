@@ -9,6 +9,5 @@ namespace Assets.Backend.Model
     public class PossessionAbilityArgs
     {
         public Character Target;
-
     }
 }

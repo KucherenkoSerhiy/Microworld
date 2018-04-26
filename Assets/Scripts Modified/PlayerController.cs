@@ -8,13 +8,14 @@ using Backend.GameCore.BusinessLogic.Factory;
 public class PlayerController : MonoBehaviour {
 
     public EnPlayerInputSource PlayerInput;
-    private Character _character;
+    public Character _character;
 
     public MoveAbilityArgs MoveAbilityArgs;
     public JumpAbilityArgs JumpAbilityArgs;
     public LifeAbilityArgs LifeAbilityArgs;
     public GatherAbilityArgs GatherAbilityArgs;
     public ShootAbilityArgs ShootAbilityArgs;
+    public ThrowChipAbilityArgs ThrowChipAbilityArgs;
     public DashAbilityArgs DashAbilityArgs;
     
 	void Start ()
@@ -37,15 +38,17 @@ public class PlayerController : MonoBehaviour {
         var lifeAbility = AbilityFactory.Instance.CreateLifeAbility(_character, LifeAbilityArgs);
         var gatherAbility = AbilityFactory.Instance.CreateGatherAbility(_character, GatherAbilityArgs);
         var shootAbility = AbilityFactory.Instance.CreateShootAbility(_character, ShootAbilityArgs);
-        var possessAbility = AbilityFactory.Instance.CreatePossessAbility(_character);
+        var throwChipAbility = AbilityFactory.Instance.CreateThrowChipAbility(_character, ThrowChipAbilityArgs);
+        //var possessAbility = AbilityFactory.Instance.CreatePossessAbility(_character);
         var dashAbility = AbilityFactory.Instance.CreateDashAbility(_character, DashAbilityArgs);
 
         _character.Abilities.Add(moveAbility);
         _character.Abilities.Add(jumpAbility);
         _character.Abilities.Add(lifeAbility);
         _character.Abilities.Add(gatherAbility);
-        _character.Abilities.Add(possessAbility);
+        //_character.Abilities.Add(possessAbility);
         _character.Abilities.Add(shootAbility);
+        _character.Abilities.Add(throwChipAbility);
         _character.Abilities.Add(dashAbility);
     }
 

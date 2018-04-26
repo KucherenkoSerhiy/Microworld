@@ -29,7 +29,6 @@ namespace Assets.Backend.Model
                 
                 if (Character.HorizontalDirection == EnHorizontalDirection.Right)
                 {
-                    
                     projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * potency;
                 }
                 else

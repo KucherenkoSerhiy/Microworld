@@ -27,6 +27,7 @@ public class EnemyController : MonoBehaviour {
         var botPlayerControl = ControlManager.Instance.GetBotPlayerControlList().GetPlayer(BotInput);
 
         _character = CharacterFactory.Instance.CreateCharacter(this.gameObject, null, botPlayerControl); //TODO sic! Remove this antinatural null!
+        _character.CanBePossessed = true;
         AddAbilities();
         SetDamage();
     }
