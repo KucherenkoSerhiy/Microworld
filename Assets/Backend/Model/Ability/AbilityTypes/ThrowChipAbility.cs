@@ -23,7 +23,6 @@ namespace Assets.Backend.Model {
             if (AbilityArgs.Chip == null) return;
             if (Input.IsIntentingToThrowChip) {
                 CreateChip();
-                
                
             }
 
@@ -32,10 +31,21 @@ namespace Assets.Backend.Model {
         private void CreateChip() 
         {
             Debug.Log("ThrowChipAbility: CreateChip()");
-            var projectile = _monoBehaviourUtils.Create(AbilityArgs.Chip, AbilityArgs.chipSpawn);
-            projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 5;
-            projectile.AddComponent<ChipController>();
+            var projectile = _monoBehaviourUtils.CreateAndThenDestroy(AbilityArgs.Chip, AbilityArgs.chipSpawn, 8.0f);
+
+            if (Character.HorizontalDirection == EnHorizontalDirection.Right)
+            {
+                projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 6;
+                projectile.AddComponent<ChipController>();
+            }
+            else
+            {
+                projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * -6;
+                projectile.AddComponent<ChipController>();
+            }
+
         }
+
 
         public override void Collide(Collision2D other) {
 

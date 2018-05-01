@@ -16,7 +16,9 @@ public class EnemyController : MonoBehaviour {
     public MoveAbilityArgs MoveAbilityArgs;
     public JumpAbilityArgs JumpAbilityArgs;
     public StickAbilityArgs StickAbilityArgs;
-    
+    public ShootAbilityArgs ShootAbilityArgs;
+    public DashAbilityArgs DashAbilityArgs;
+
     void Start()
     {
         CreateBot();
@@ -38,11 +40,15 @@ public class EnemyController : MonoBehaviour {
         var moveAbility  = AbilityFactory.Instance.CreateMoveAbility(_character, MoveAbilityArgs);
         var jumpAbility  = AbilityFactory.Instance.CreateJumpAbility(_character, JumpAbilityArgs);
         var stickAbility = AbilityFactory.Instance.CreateStickAbility(_character, StickAbilityArgs);
+        var shootAbility = AbilityFactory.Instance.CreateShootAbility(_character, ShootAbilityArgs);
+        var dashAbility = AbilityFactory.Instance.CreateDashAbility(_character, DashAbilityArgs);
 
         _character.Abilities.Add(lifeAbility);
         _character.Abilities.Add(moveAbility);
         _character.Abilities.Add(jumpAbility);
         _character.Abilities.Add(stickAbility);
+        _character.Abilities.Add(shootAbility);
+        _character.Abilities.Add(dashAbility);
     }
 
     private void SetDamage()

@@ -8,6 +8,7 @@ namespace Assets.Backend.Model
     {
         public GameObject Projectile;
         public Transform bulletSpawn;
+        public int potency;
 
     }
 }

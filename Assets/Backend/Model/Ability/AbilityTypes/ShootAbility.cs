@@ -12,7 +12,7 @@ namespace Assets.Backend.Model
         {
             this.Character = character;
             this.AbilityArgs = abilityArgs;
-            _monoBehaviourUtils = new MonoBehaviourUtils(); 
+            //_monoBehaviourUtils = new MonoBehaviourUtils(); 
 
             Input = Character.GetInput();
 
@@ -23,18 +23,21 @@ namespace Assets.Backend.Model
             if (AbilityArgs.Projectile == null) return;
             if (Input.IsIntentingToShoot)
             {
-                int potency = 5;
-                var projectile = _monoBehaviourUtils.CreateAndThenDestroy(AbilityArgs.Projectile, AbilityArgs.bulletSpawn, 2.0f);
 
-                
+               var projectile = MonoBehaviour.Instantiate(AbilityArgs.Projectile,
+                                                           AbilityArgs.bulletSpawn.position,
+                                                          AbilityArgs.bulletSpawn.rotation);
+
                 if (Character.HorizontalDirection == EnHorizontalDirection.Right)
                 {
-                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * potency;
+                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * AbilityArgs.potency;
                 }
                 else
                 {
-                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * -potency;
+                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * -AbilityArgs.potency;
                 }
+
+                MonoBehaviour.Destroy(projectile, 2.0f);
 
             }
 

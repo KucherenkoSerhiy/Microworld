@@ -36,14 +36,13 @@ namespace Assets.Backend.Model.Input
                 {
                     PlayerInputSource = EnPlayerInputSource.PlayerOne,
                     Input = new PlayerInput {
-                        KeyDuck = KeyCode.DownArrow,
-                        KeyJump = KeyCode.UpArrow,
-                        KeyMoveLeft = KeyCode.LeftArrow,
-                        KeyMoveRight = KeyCode.RightArrow,
-                        KeyShoot = KeyCode.I,
-                        KeyThrowChip = KeyCode.G,
-                        KeyPossess = KeyCode.L,
-                        KeyDash = KeyCode.J
+                        KeyDuck = KeyCode.S,
+                        KeyJump = KeyCode.W,
+                        KeyMoveLeft = KeyCode.A,
+                        KeyMoveRight = KeyCode.D,
+                        KeyShoot = KeyCode.J,
+                        KeyThrowChip = KeyCode.K,
+                        KeyDash = KeyCode.L
                     },
                     IsActive = true
                 },
@@ -51,24 +50,20 @@ namespace Assets.Backend.Model.Input
                 {
                     PlayerInputSource = EnPlayerInputSource.PlayerTwo,
                     Input = new PlayerInput {
-                        KeyDuck = KeyCode.S,
-                        KeyJump = KeyCode.W,
-                        KeyMoveLeft = KeyCode.A,
-                        KeyMoveRight = KeyCode.D
+                        //KeyDuck = KeyCode.S,
+                        //KeyJump = KeyCode.W,
+                        //KeyMoveLeft = KeyCode.A,
+                        //KeyMoveRight = KeyCode.D
+
+                        KeyDuck = KeyCode.Joystick1Button1,
+                        KeyJump = KeyCode.Joystick1Button0,
+                        KeyMoveLeft = KeyCode.Joystick1Button4,
+                        KeyMoveRight = KeyCode.Joystick1Button5,
+                        KeyShoot = KeyCode.Joystick1Button2,
+                        KeyDash = KeyCode.Joystick1Button3
                     },
                     IsActive = true
                 },
-//                new HumanPlayerControl
-//                {
-//                    PlayerInputSource = EnPlayerInputSource.PlayerTwo,
-//                    Input = new PlayerInput {
-//                        KeyDuck = KeyCode.,
-//                        KeyJump = KeyCode.,
-//                        KeyMoveLeft = KeyCode.,
-//                        KeyMoveRight = KeyCode.
-//                    },
-//                    IsActive = true
-//                }
             };
         }
 
