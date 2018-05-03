@@ -11,5 +11,6 @@
         bool IsIntentingToAttack { get; }
         bool IsIntentingToPosses { get;  }
         bool IsIntentingToDash { get;  }
+        bool IsPressingJump { get; }
     }
 }

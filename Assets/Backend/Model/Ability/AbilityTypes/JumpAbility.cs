@@ -28,17 +28,21 @@ namespace Assets.Backend.Model
 
         public override void Activate()
         {
- 
             if (_rigidBody.velocity.y < 0)
                 GravityMod();
 
-            else if (_rigidBody.velocity.y > 0 && !Input.IsIntentingToJump)
+            else if (_rigidBody.velocity.y > 0 && !Input.IsPressingJump)
             {
-  
+                GravityMod();
+            }
+
+            else if (_rigidBody.velocity.y > 0 && !Input.IsPressingJump)
+            {
                 GravityMod();
             }
 
             if (!Input.IsIntentingToJump) return;
+
 
             if (CanWallJump())
                 PerformWallJump();

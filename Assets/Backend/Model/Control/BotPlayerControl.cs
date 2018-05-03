@@ -65,5 +65,12 @@ namespace Assets.Backend.Model.Control
                 return false;
             }
         }
+        public bool IsPressingJump
+        {
+            get
+            {
+                return IsActive;
+            }
+        }
     }
 }

@@ -19,4 +19,5 @@ public class PlayerInput
     public bool IsIntentingToAttack { get { return Input.GetKeyDown(KeyAttack); } }
     public bool IsIntentingToPossess { get { return Input.GetKey(KeyPossess); } }
     public bool IsIntentingToDash { get { return Input.GetKeyDown(KeyDash); } }
+    public bool IsPressingJump { get { return Input.GetKey(KeyJump);  } }
 }
