@@ -70,6 +70,7 @@ namespace Assets.Backend.Model
                 Debug.WriteLine("Rest In Peace");
                 AbilityArgs.HitPoints = 0;
                 AbilityArgs.IsAlive = false;
+                MonoBehaviourUtils.DestroyImmediate(this.Character.Representation);
 
                 //FIXME: this just inactivates the GameObj, we want to destroy it
                 // When trying to get the GameObj with

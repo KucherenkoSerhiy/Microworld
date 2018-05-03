@@ -15,15 +15,21 @@ namespace Assets.Backend.Model.Input
             {
                 new BotPlayerControl
                 {
-                    BotInputSource = EnBotInputSource.BasicPursuer,
+                    BotInputSource = EnBotInputSource.Pursuer,
                     IsActive = true
                 }
             };
         }
 
+        /// <summary>
+        /// returns copy of the control (as there are many of them)
+        /// </summary>
+        /// <param name="botPlayerSource"></param>
+        /// <returns></returns>
         public BotPlayerControl GetPlayer(EnBotInputSource botPlayerSource)
         {
-            return Controls.SingleOrDefault(x => x.BotInputSource == botPlayerSource);
+            var control = Controls.SingleOrDefault(x => x.BotInputSource == botPlayerSource);
+            return control == null ? null : control.Clone();
         }
     }
 }
