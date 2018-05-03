@@ -15,5 +15,6 @@
         public bool IsIntentingToThrowChip { get { return Input.IsIntentingToThrowChip && IsActive; } }
         public bool IsIntentingToPosses { get { return Input.IsIntentingToPossess && IsActive; } }
         public bool IsIntentingToDash { get { return Input.IsIntentingToDash && IsActive; } }
+        public bool IsPressingJump { get { return Input.IsPressingJump && IsActive; } }
     }
 }

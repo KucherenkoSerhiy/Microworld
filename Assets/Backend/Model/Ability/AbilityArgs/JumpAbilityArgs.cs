@@ -7,11 +7,11 @@ namespace Assets.Backend.Model
     [Serializable]
     public class JumpAbilityArgs
     {
-        public int JumpForce;
+        public float JumpForce;
         internal bool IsGrounded;
         internal int JumpsDone;
         public int JumpsMax;
-
+        public float FallMultiplier;
         public bool CanWallJump;
     }
 }

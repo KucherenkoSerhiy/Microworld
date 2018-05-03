@@ -28,23 +28,26 @@ namespace Assets.Backend.Model
 
         public override void Activate()
         {
-            if (!Input.IsIntentingToDash) return;
+            if (!Input.IsIntentingToDash) return; //Here, if you also check for a timer or something, this might work as intended 
 
             if (DashStatus())
                 PerformDash();
         }
 
         private void PerformDash()
-        { 
+        {
+            
             if (Character.HorizontalDirection == EnHorizontalDirection.Right)
             {
-                _rigidBody.velocity = _transform.right * AbilityArgs.DashForce;
+                //Debug.Log("oemege right " + _transform.right * AbilityArgs.DashForce );
+                _rigidBody.velocity = _transform.right * AbilityArgs.DashForce * Time.deltaTime;
                 //_rigidBody.velocity = new Vector2(AbilityArgs.DashForce, _rigidBody.velocity.y);
             }
 
             else if (Character.HorizontalDirection == EnHorizontalDirection.Left)
             {
-                _rigidBody.velocity = _transform.right * -AbilityArgs.DashForce;
+                //Debug.Log("oemege left " + _transform.right * AbilityArgs.DashForce );
+                _rigidBody.velocity = _transform.right * -AbilityArgs.DashForce *  Time.deltaTime;
                 //_rigidBody.velocity = new Vector2(-1 * AbilityArgs.DashForce, _rigidBody.velocity.y);
             }
 

@@ -23,4 +23,5 @@ public class PlayerInput
     public bool IsIntentingToThrowChip { get { return Input.GetKeyDown(KeyThrowChip); } }
     public bool IsIntentingToPossess { get { return Input.GetKey(KeyPossess); } }
     public bool IsIntentingToDash { get { return Input.GetKeyDown(KeyDash); } }
+    public bool IsPressingJump { get { return Input.GetKey(KeyJump);  } }
 }

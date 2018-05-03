@@ -28,7 +28,21 @@ namespace Assets.Backend.Model
 
         public override void Activate()
         {
+            if (_rigidBody.velocity.y < 0)
+                GravityMod();
+
+            else if (_rigidBody.velocity.y > 0 && !Input.IsPressingJump)
+            {
+                GravityMod();
+            }
+
+            else if (_rigidBody.velocity.y > 0 && !Input.IsPressingJump)
+            {
+                GravityMod();
+            }
+
             if (!Input.IsIntentingToJump) return;
+
 
             if (CanWallJump())
                 PerformWallJump();
@@ -42,6 +56,12 @@ namespace Assets.Backend.Model
 
             AbilityArgs.IsGrounded = true;
             AbilityArgs.JumpsDone = 0;
+        }
+
+        private void GravityMod()
+        {
+            
+            _rigidBody.velocity += Vector2.up * Physics2D.gravity.y * (AbilityArgs.FallMultiplier - 1) * Time.deltaTime;
         }
 
         private bool CanWallJump()
@@ -71,7 +91,7 @@ namespace Assets.Backend.Model
 
         private void PerformJump()
         {
-            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, AbilityArgs.JumpForce);
+            _rigidBody.velocity = Vector2.up * AbilityArgs.JumpForce;
 
             AbilityArgs.IsGrounded = false;
             AbilityArgs.JumpsDone++;
