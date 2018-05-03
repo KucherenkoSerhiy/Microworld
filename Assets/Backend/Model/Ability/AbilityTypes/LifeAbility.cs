@@ -71,11 +71,6 @@ namespace Assets.Backend.Model
                 AbilityArgs.HitPoints = 0;
                 AbilityArgs.IsAlive = false;
                 MonoBehaviourUtils.DestroyImmediate(this.Character.Representation);
-
-                //FIXME: this just inactivates the GameObj, we want to destroy it
-                // When trying to get the GameObj with
-                // MonoBehaviorUtils.Destroy(Character.Representation) it complains;
-                Character.Representation.SetActive(false);
             }
         }
     }
