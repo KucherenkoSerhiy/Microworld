@@ -79,12 +79,23 @@ namespace Assets.Backend.Model.Control
                 return false;
             }
         }
+
         public bool IsPressingJump
         {
             get
             {
                 return IsActive;
             }
-        }
+		}
+
+        public BotPlayerControl Clone()
+        {
+            return new BotPlayerControl
+            {
+                BotInputSource = BotInputSource,
+                IsActive = IsActive
+            };
+
+		}
     }
 }

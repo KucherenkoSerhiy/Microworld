@@ -1,1 +1,1 @@
-﻿public enum EnBotInputSource { None, BasicPursuer }
+﻿public enum EnBotInputSource { None, Pursuer, Shooter }
