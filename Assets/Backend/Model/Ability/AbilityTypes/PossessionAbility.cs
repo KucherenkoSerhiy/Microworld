@@ -53,6 +53,7 @@ namespace Assets.Backend.Model
             otherCharacter.HumanPlayerControl = control;
             otherCharacter.BotPlayerControl.IsActive = false;
             otherCharacter.SetControl(control);
+            Debug.Log("POSSESSED");
         }
 
         private bool Possessable(Collision2D other) {

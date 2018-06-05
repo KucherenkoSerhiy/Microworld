@@ -7,5 +7,7 @@ namespace Assets.Backend.Model {
         public GameObject Chip;
         public Character chipCharacter;
         public Transform chipSpawn;
+        public int horizontalPotency;
+        public int verticalPotency;
     }
 }

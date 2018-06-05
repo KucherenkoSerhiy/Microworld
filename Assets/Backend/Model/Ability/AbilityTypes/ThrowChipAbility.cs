@@ -32,18 +32,16 @@ namespace Assets.Backend.Model {
         {
             Debug.Log("ThrowChipAbility: CreateChip()");
             var projectile = _monoBehaviourUtils.CreateAndThenDestroy(AbilityArgs.Chip, AbilityArgs.chipSpawn, 8.0f);
+            var projectileRigidBody = projectile.GetComponent<Rigidbody2D>();
+            var moveVector = new Vector2(this.AbilityArgs.horizontalPotency, this.AbilityArgs.verticalPotency);
 
-            if (Character.HorizontalDirection == EnHorizontalDirection.Right)
+            if (Character.HorizontalDirection == EnHorizontalDirection.Left)
             {
-                projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 6;
-                projectile.AddComponent<ChipController>();
+                // Changing sign of horizontalPotency to shoot to the left
+                moveVector = new Vector2(-this.AbilityArgs.horizontalPotency, this.AbilityArgs.verticalPotency);
             }
-            else
-            {
-                projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * -6;
-                projectile.AddComponent<ChipController>();
-            }
-
+            projectileRigidBody.AddForce(moveVector);
+            projectile.AddComponent<ChipController>();
         }
 
 
