@@ -58,7 +58,7 @@ namespace Assets.Backend.GameCore.A.I
         /// State change trigger 
         /// </summary>
         /// <param name="something"></param>
-        public abstract void See(object something);
+        public abstract void Watch();
 
         /*
         /// <summary>

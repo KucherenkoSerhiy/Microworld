@@ -31,7 +31,7 @@ namespace Assets.Backend.GameCore.A.I
             throw new NotImplementedException();
         }
 
-        public override void See(object something)
+        public override void Watch()
         {
             throw new NotImplementedException();
         }
@@ -43,6 +43,13 @@ namespace Assets.Backend.GameCore.A.I
             if (moveAbility != null)
             {
                 ((MoveAbility)moveAbility).MoveTo(_enemy.Representation.transform.position);
+            }
+
+            var jumpAbility = _character.Abilities.SingleOrDefault(x => x.GetType() == typeof(JumpAbility));
+
+            if (jumpAbility != null)
+            {
+                ((JumpAbility)jumpAbility).PerformJump();
             }
         }
 

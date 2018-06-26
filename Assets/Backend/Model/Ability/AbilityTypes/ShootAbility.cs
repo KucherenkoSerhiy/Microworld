@@ -23,24 +23,28 @@ namespace Assets.Backend.Model
             if (AbilityArgs.Projectile == null) return;
             if (Input == null || Input.IsIntentingToShoot)
             {
-
-               var projectile = MonoBehaviour.Instantiate(AbilityArgs.Projectile,
-                                                           AbilityArgs.bulletSpawn.position,
-                                                          AbilityArgs.bulletSpawn.rotation);
-
-                if (Character.HorizontalDirection == EnHorizontalDirection.Right)
-                {
-                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * AbilityArgs.potency;
-                }
-                else
-                {
-                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * -AbilityArgs.potency;
-                }
-
-                MonoBehaviour.Destroy(projectile, 2.0f);
+                Shoot();
 
             }
 
+        }
+
+        public void Shoot()
+        {
+            var projectile = MonoBehaviour.Instantiate(AbilityArgs.Projectile,
+                                                                       AbilityArgs.bulletSpawn.position,
+                                                                      AbilityArgs.bulletSpawn.rotation);
+
+            if (Character.HorizontalDirection == EnHorizontalDirection.Right)
+            {
+                projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * AbilityArgs.potency;
+            }
+            else
+            {
+                projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * -AbilityArgs.potency;
+            }
+
+            MonoBehaviour.Destroy(projectile, 2.0f);
         }
 
         public override void Collide(Collision2D other)

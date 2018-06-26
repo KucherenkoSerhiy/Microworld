@@ -27,7 +27,7 @@ public class ShooterEnemyController : MonoBehaviour {
     private void CreateBot()
     {
         var motherFucker = CharacterManager.Instance.GetCharacterList().GetCharacterByName("Player1");
-        var botPlayerControl = new BasicAgressiveNpc(motherFucker);
+        var botPlayerControl = new ShooterNpc(motherFucker);
 
         _character = CharacterFactory.Instance.CreateNpc(this.gameObject, botPlayerControl);
         _character.CanBePossessed = true;
@@ -60,6 +60,7 @@ public class ShooterEnemyController : MonoBehaviour {
 
     void Update()
     {
+        _character.BotPlayerControl.Watch();
         _character.BotPlayerControl.Act();
     }
 

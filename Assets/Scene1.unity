@@ -5848,9 +5848,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 871946440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5682dcf985157ee448a4577f72267431, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d7ec7947eedbe140a840482c81a9e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targets: []
+  offset: {x: 0, y: 0, z: 0}
+  smoothTime: 0.5
+  minZoom: 0
+  maxZoom: 0
+  zoomLimiter: 0
 --- !u!1 &974536503
 GameObject:
   m_ObjectHideFlags: 0

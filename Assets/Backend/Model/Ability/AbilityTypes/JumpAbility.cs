@@ -89,9 +89,9 @@ namespace Assets.Backend.Model
             return AbilityArgs.IsGrounded || AbilityArgs.JumpsDone < AbilityArgs.JumpsMax;
         }
 
-        private void PerformJump()
+        public void PerformJump()
         {
-            _rigidBody.velocity = Vector2.up * AbilityArgs.JumpForce;
+            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, AbilityArgs.JumpForce);
 
             AbilityArgs.IsGrounded = false;
             AbilityArgs.JumpsDone++;
