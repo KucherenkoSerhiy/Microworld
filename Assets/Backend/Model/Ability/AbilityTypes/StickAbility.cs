@@ -20,7 +20,6 @@ namespace Assets.Backend.Model
             this.Character = character;
             this.AbilityArgs = abilityArgs;
 
-            Input = Character.GetInput();
             _rigidBody = Character.Representation.GetComponent<Rigidbody2D>();
             _boxCollider2D = Character.Representation.GetComponent<BoxCollider2D>();
             _transform = Character.Representation.GetComponent<Transform>();

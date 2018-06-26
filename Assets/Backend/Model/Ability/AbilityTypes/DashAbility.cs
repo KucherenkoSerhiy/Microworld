@@ -20,7 +20,7 @@ namespace Assets.Backend.Model
             this.Character = character;
             this.AbilityArgs = abilityArgs;
 
-            Input = Character.GetInput();
+            Input = Character.HumanPlayerControl;
             _rigidBody = Character.Representation.GetComponent<Rigidbody2D>();
             _boxCollider2D = Character.Representation.GetComponent<BoxCollider2D>();
             _transform = Character.Representation.GetComponent<Transform>();
@@ -28,7 +28,7 @@ namespace Assets.Backend.Model
 
         public override void Activate()
         {
-            if (!Input.IsIntentingToDash) return; //Here, if you also check for a timer or something, this might work as intended 
+            if (Input != null && !Input.IsIntentingToDash) return; //Here, if you also check for a timer or something, this might work as intended 
 
             if (DashStatus())
                 PerformDash();

@@ -14,8 +14,6 @@ namespace Assets.Backend.Model
         {
             this.Character = character;
             this.AbilityArgs = abilityArgs;
-
-            Input = Character.GetInput();
         }
 
         public override void Activate()

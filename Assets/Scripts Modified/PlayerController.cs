@@ -27,8 +27,10 @@ public class PlayerController : MonoBehaviour {
     {
         var humanPlayerControl = ControlManager.Instance.GetHumanPlayerControlList().GetPlayer(PlayerInput);
 
-        _character = CharacterFactory.Instance.CreateCharacter(this.gameObject, humanPlayerControl);
+        _character = CharacterFactory.Instance.CreatePlayer(this.gameObject, humanPlayerControl);
         AddAbilities();
+
+        _character.Activate();
     }
 
     private void AddAbilities()

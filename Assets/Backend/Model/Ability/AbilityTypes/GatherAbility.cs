@@ -14,7 +14,6 @@ namespace Assets.Backend.Model
             this.Character = character;
             this.AbilityArgs = abilityArgs;
 
-            Input = Character.GetInput();
             _collider = Character.Representation.GetComponent<Collider2D>();
         }
 

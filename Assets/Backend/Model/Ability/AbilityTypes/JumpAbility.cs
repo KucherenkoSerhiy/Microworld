@@ -20,7 +20,7 @@ namespace Assets.Backend.Model
             this.Character = character;
             this.AbilityArgs = abilityArgs;
 
-            Input = Character.GetInput();
+            Input = Character.HumanPlayerControl;
             _rigidBody = Character.Representation.GetComponent<Rigidbody2D>();
             _boxCollider2D = Character.Representation.GetComponent<BoxCollider2D>();
             _transform = Character.Representation.GetComponent<Transform>();
@@ -31,17 +31,17 @@ namespace Assets.Backend.Model
             if (_rigidBody.velocity.y < 0)
                 GravityMod();
 
-            else if (_rigidBody.velocity.y > 0 && !Input.IsPressingJump)
+            else if (_rigidBody.velocity.y > 0 && Input != null && !Input.IsPressingJump)
             {
                 GravityMod();
             }
 
-            else if (_rigidBody.velocity.y > 0 && !Input.IsPressingJump)
+            else if (_rigidBody.velocity.y > 0 && Input != null && !Input.IsPressingJump)
             {
                 GravityMod();
             }
 
-            if (!Input.IsIntentingToJump) return;
+            if (Input != null && !Input.IsIntentingToJump) return;
 
 
             if (CanWallJump())

@@ -1,4 +1,6 @@
-﻿using Assets.Backend.GameCore.Manager;
+﻿using System;
+using Assets.Backend.GameCore.A.I;
+using Assets.Backend.GameCore.Manager;
 using Assets.Backend.Model;
 using Assets.Backend.Model.Control;
 using UnityEngine;
@@ -25,12 +27,38 @@ namespace Backend.GameCore.BusinessLogic.Factory
 
         #endregion
         
-        public Character CreateCharacter (GameObject representation, HumanPlayerControl humanPlayerControl = null, BotPlayerControl botPlayerControl = null)
+        public Character CreatePlayer (GameObject representation, HumanPlayerControl humanPlayerControl)
+        {
+            var character = new Character
+            {
+                HumanPlayerControl = humanPlayerControl,
+                Representation = representation,
+            };
+
+            CharacterManager.Instance.GetCharacterList().AddCharacter(character);
+
+            return character;
+        }
+
+        public Character CreateNpc(GameObject representation, NpcIntelligenceBase botPlayerControl)
         {
             var character = new Character
             {
                 BotPlayerControl = botPlayerControl,
-                HumanPlayerControl = humanPlayerControl,
+                Representation = representation,
+            };
+
+            botPlayerControl.SetCharacter(character);
+
+            CharacterManager.Instance.GetCharacterList().AddCharacter(character);
+
+            return character;
+        }
+        
+        internal Character CreateProjectile(GameObject representation)
+        {
+            var character = new Character
+            {
                 Representation = representation,
             };
 

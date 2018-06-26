@@ -20,15 +20,15 @@ namespace Assets.Backend.Model
             this.Character = character;
             this.AbilityArgs = abilityArgs;
 
-            Input = Character.GetInput();
+            Input = Character.HumanPlayerControl;
             _rigidBody = Character.Representation.GetComponent<Rigidbody2D>();
         }
 
         public override void Activate()
         {
-            //if (Input.IsIntentingToPosses && !AlreadyPossessed())
+            //if ((Input == null || Input.IsIntentingToPosses) && !AlreadyPossessed())
             //{
-             //   Possess();
+            //   Possess();
             //}
 
         }

@@ -1,4 +1,5 @@
-﻿using Assets.Backend.Model.Control;
+﻿using System;
+using Assets.Backend.Model.Control;
 using UnityEngine;
 
 namespace Assets.Backend.Model
@@ -15,14 +16,14 @@ namespace Assets.Backend.Model
             this.Character = character;
             this.AbilityArgs = abilityArgs;
 
-            Input = Character.GetInput();
+            Input = Character.HumanPlayerControl;
             _rigidBody = Character.Representation.GetComponent<Rigidbody2D>();
             _transform = Character.Representation.GetComponent<Transform>();
         }
 
         public override void Activate()
         {
-            if (Input.IsIntentingToMoveLeft)
+            if (Input == null || Input.IsIntentingToMoveLeft)
             {
                 
                 if(Character.HorizontalDirection == EnHorizontalDirection.Right)
@@ -38,7 +39,7 @@ namespace Assets.Backend.Model
                 _rigidBody.velocity = new Vector2(-AbilityArgs.MoveSpeed, _rigidBody.velocity.y);
             }
                 
-            else if (Input.IsIntentingToMoveRight)
+            else if (Input == null || Input.IsIntentingToMoveRight)
             {
                 if (Character.HorizontalDirection == EnHorizontalDirection.Left)
                 {
@@ -58,6 +59,12 @@ namespace Assets.Backend.Model
         public override void Collide(Collision2D other)
         {
             // for now do nothing
+        }
+
+        internal void MoveTo(Vector3 position)
+        {
+            int dirInversor = position.x < _transform.position.x ? -1 : 1;
+            _rigidBody.velocity = new Vector2(AbilityArgs.MoveSpeed * dirInversor, _rigidBody.velocity.y);
         }
     }
 }

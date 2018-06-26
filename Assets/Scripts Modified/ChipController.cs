@@ -8,7 +8,6 @@ using UnityEngine;
 
 public class ChipController : MonoBehaviour {
 
-    public EnBotInputSource BotInput;
     private Character _character;
     private MonoBehaviourUtils _monoBehaviourUtils;
     public PossessionAbilityArgs PossessionAbilityArgs;
@@ -20,9 +19,7 @@ public class ChipController : MonoBehaviour {
 
     private void CreateChip()
     {
-        var botPlayerControl = new BotPlayerControl(); // empty because it is a chip for fucks sake
-        //Debug.Log(this.gameObject);
-        _character = CharacterFactory.Instance.CreateCharacter(this.gameObject, null, botPlayerControl); //TODO sic! Remove this antinatural null!
+        _character = CharacterFactory.Instance.CreateProjectile(this.gameObject);
         AddAbilities();
     }
 

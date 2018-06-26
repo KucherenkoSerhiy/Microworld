@@ -1,1 +1,0 @@
-﻿public enum EnBotInputSource { None, Pursuer, Shooter }

@@ -14,14 +14,14 @@ namespace Assets.Backend.Model
             this.AbilityArgs = abilityArgs;
             //_monoBehaviourUtils = new MonoBehaviourUtils(); 
 
-            Input = Character.GetInput();
+            Input = Character.HumanPlayerControl;
 
         }
 
         public override void Activate()
         {
             if (AbilityArgs.Projectile == null) return;
-            if (Input.IsIntentingToShoot)
+            if (Input == null || Input.IsIntentingToShoot)
             {
 
                var projectile = MonoBehaviour.Instantiate(AbilityArgs.Projectile,

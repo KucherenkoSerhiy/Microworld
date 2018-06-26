@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Backend.Model;
+using Assets.Backend.GameCore.A.I;
+using System.Threading;
 
 namespace Assets.Backend.Model
 {
@@ -10,11 +12,13 @@ namespace Assets.Backend.Model
     
     public class Character
     {
+        private bool _isActive;
+
         public GameObject Representation { get; set; }
         public List<Ability> Abilities { get; set; }
         public HumanPlayerControl HumanPlayerControl { get; set; }
         public bool CanBePossessed { get; set; }
-        public BotPlayerControl BotPlayerControl { get; set; }
+        public NpcIntelligenceBase BotPlayerControl { get; set; }
         public EnHorizontalDirection HorizontalDirection { get; set; }
         public Damage TouchDamage { get; set; }
 
@@ -22,21 +26,15 @@ namespace Assets.Backend.Model
         {
             Abilities = new List<Ability>();
         }
-
-        public IControl GetInput()
-        {
-            if (HumanPlayerControl != null) return HumanPlayerControl;
-            if (BotPlayerControl != null) return BotPlayerControl;
-            throw new IndexOutOfRangeException("The character has no human nor bot control!");
-        }
-
+        
         public void Act()
         {
-            foreach (var ability in Abilities)
-            {
-                if (ability.IsActive())
-                    ability.Activate();
-            }
+            if (_isActive)
+                foreach (var ability in Abilities)
+                {
+                    if (ability.IsActive())
+                        ability.Activate();
+                }
         }
 
         public void Collide(Collision2D other)
@@ -56,6 +54,17 @@ namespace Assets.Backend.Model
             {
                 if (ability.IsActive())
                     ability.Input = control;
+            }
+        }
+
+        internal void Activate()
+        {
+            if (!_isActive)
+            {
+                if (BotPlayerControl != null)
+                    BotPlayerControl.Activate();
+
+                _isActive = true;
             }
         }
     }

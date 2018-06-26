@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Backend.GameCore.A.I;
 using Assets.Backend.GameCore.BusinessLogic.Factory;
+using Assets.Backend.GameCore.Manager;
 using Assets.Backend.Model;
 using Backend.GameCore.BusinessLogic.Factory;
 using Backend.Model;
@@ -23,13 +25,16 @@ public class PursuerEnemyController : MonoBehaviour {
 
     private void CreateBot()
     {
-        var botPlayerControl = ControlManager.Instance.GetBotPlayerControlList().GetPlayer(EnBotInputSource.Pursuer);
+        var motherFucker = CharacterManager.Instance.GetCharacterList().GetCharacterByName("Player1");
+        var botPlayerControl = new BasicAgressiveNpc(motherFucker);
 
-        //_character = CharacterFactory.Instance.CreateCharacter(this.gameObject, null, botPlayerControl);
-        _character = CharacterFactory.Instance.CreateCharacter(this.gameObject, null, botPlayerControl);
+        _character = CharacterFactory.Instance.CreateNpc(this.gameObject, botPlayerControl);
         _character.CanBePossessed = true;
+
         AddAbilities();
         SetDamage();
+
+        _character.Activate();
     }
 
     private void AddAbilities()
@@ -52,7 +57,7 @@ public class PursuerEnemyController : MonoBehaviour {
 
     void Update()
     {
-        _character.Act();
+        _character.BotPlayerControl.Act();
     }
 
     void OnCollisionStay2D(Collision2D other)
